@@ -20,7 +20,7 @@ public class SaveLoad : MonoBehaviour
             basket.maxCount = PlayerPrefs.GetInt("MaxCountInBasket");
             for (int i = 0; i < PlayerPrefs.GetInt("CountInBasket"); i++)
             {
-                ScriptableObjectMushroom mushroom = ScriptableObject.CreateInstance<ScriptableObjectMushroom>();
+                ItemMushroom mushroom = ItemMushroom.CreateInstance<ItemMushroom>();
                 mushroom.quality = PlayerPrefs.GetFloat("MushroomQuality" + i);
                 mushroom.costByQuality = PlayerPrefs.GetFloat("costByQuality" + i);
                 basket.AddMushroom(mushroom);

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Basket : MonoBehaviour
 {
     public int maxCount;
-    public List<ScriptableObjectMushroom> mushroomsInBasket;
+    public List<ItemMushroom> mushroomsInBasket;
 
     public static Basket instance;
 
@@ -21,7 +21,7 @@ public class Basket : MonoBehaviour
         else
             return true;
     }
-    public void AddMushroom(ScriptableObjectMushroom mushroom)
+    public void AddMushroom(ItemMushroom mushroom)
     {
         mushroomsInBasket.Add(mushroom);
     }

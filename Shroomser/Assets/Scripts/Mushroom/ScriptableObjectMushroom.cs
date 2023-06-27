@@ -8,12 +8,6 @@ public class ScriptableObjectMushroom : ScriptableObject
     public GameObject Model;
     public float maxQuality;
     public float minQuality;
-    [HideInInspector] public float quality;
     public float costByQuality;
     public MushroomRarity.Rarity rarity;
-
-    public void IncreaseQuality(int number)
-    {
-        quality += number;
-    }    
 }

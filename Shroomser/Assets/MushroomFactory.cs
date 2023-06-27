@@ -7,7 +7,7 @@ public class MushroomFactory : MonoBehaviour
 {
     public TMP_Text number;
     public int MaxCount;
-    public List<ScriptableObjectMushroom> mushroomsInFactory;
+    public List<ItemMushroom> mushroomsInFactory;
     Basket basket;
     private void Start()
     {

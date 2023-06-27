@@ -15,6 +15,5 @@ MonoBehaviour:
   Model: {fileID: 1362693283917440294, guid: b71239a385c21404a93986aacb55feca, type: 3}
   maxQuality: 100
   minQuality: 1
-  quality: 57
   costByQuality: 10
   rarity: 0

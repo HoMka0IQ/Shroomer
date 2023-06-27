@@ -6,15 +6,17 @@ public abstract class BaseMushroom : MonoBehaviour
 {
 
     [SerializeField] private ScriptableObjectMushroom mushroom;
-    [HideInInspector] public  ScriptableObjectMushroom _mushroom;
+    public ItemMushroom _mushroom;
     public MushroomRarity.Rarity rarity;
 
 
     private void Start()
     {
-        _mushroom = ScriptableObject.CreateInstance<ScriptableObjectMushroom>();
-        _mushroom = mushroom;
+        _mushroom = ItemMushroom.CreateInstance<ItemMushroom>();
+        _mushroom.Model = mushroom.Model;
         _mushroom.quality = (int)Random.Range(mushroom.minQuality, mushroom.maxQuality);
+        _mushroom.costByQuality = mushroom.costByQuality;
+        _mushroom.rarity = rarity;
     }
 
 }
