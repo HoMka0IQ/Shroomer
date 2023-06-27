@@ -59,7 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a3f152dc279fc444864f1ad28c85dec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mushroom: {fileID: 0}
+  mushroom: {fileID: 11400000, guid: 5c8f6daf2fbc9194c853d32eb4fbf26e, type: 2}
+  _mushroom: {fileID: 0}
+  rarity: 0
 --- !u!1 &6489152114582527269
 GameObject:
   m_ObjectHideFlags: 0

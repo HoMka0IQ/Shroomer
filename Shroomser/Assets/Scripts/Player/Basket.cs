@@ -9,7 +9,7 @@ public class Basket : MonoBehaviour
 
     public static Basket instance;
 
-    private void Start()
+    private void Awake()
     {
         instance = GetComponent<Basket>();
     }

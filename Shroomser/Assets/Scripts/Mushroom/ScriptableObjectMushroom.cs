@@ -12,10 +12,6 @@ public class ScriptableObjectMushroom : ScriptableObject
     public float costByQuality;
     public MushroomRarity.Rarity rarity;
 
-    private void Awake()
-    {
-        quality = Random.Range(minQuality, maxQuality);
-    }
     public void IncreaseQuality(int number)
     {
         quality += number;

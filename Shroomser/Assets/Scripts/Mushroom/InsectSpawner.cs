@@ -5,8 +5,10 @@ public class InsectSpawner : MonoBehaviour
     public InsectData insectData;
     public void SpawnInsectOnMushroom(GameObject mushroomObject, int numbers)
     {
+        
         for (int i = 0; i < numbers; i++)
         {
+            
             int t = Random.Range(0, insectData.InsectPrefab.Length);
             if (Item3DViewer.instance.MushroomData.quality - insectData.IncreaseQuality[t] < 0)
             {
@@ -44,7 +46,7 @@ public class InsectSpawner : MonoBehaviour
             Vector3 spawnPosition = mushroomObject.transform.TransformPoint(randomVertex);
 
             // Створюємо нову комаху на визначеній позиції
-            
+            Debug.Log(numbers);
             GameObject newInsect = Instantiate(insectData.InsectPrefab[t], spawnPosition, Quaternion.identity);
             newInsect.transform.SetParent(mushroomObject.transform);
             Insect insect = newInsect.AddComponent<Insect>();

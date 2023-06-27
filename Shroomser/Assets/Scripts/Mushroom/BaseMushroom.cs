@@ -14,6 +14,7 @@ public abstract class BaseMushroom : MonoBehaviour
     {
         _mushroom = ScriptableObject.CreateInstance<ScriptableObjectMushroom>();
         _mushroom = mushroom;
+        _mushroom.quality = (int)Random.Range(mushroom.minQuality, mushroom.maxQuality);
     }
 
 }
