@@ -24,7 +24,7 @@ public class SaveLoad : MonoBehaviour
                 mushroom.quality = PlayerPrefs.GetFloat("MushroomQuality" + i);
                 mushroom.costByQuality = PlayerPrefs.GetFloat("costByQuality" + i);
                 basket.AddMushroom(mushroom);
-
+                
             }
         }
         
@@ -39,8 +39,6 @@ public class SaveLoad : MonoBehaviour
             PlayerPrefs.SetFloat("MushroomQuality" + i, basket.mushroomsInBasket[i].quality);
             PlayerPrefs.SetFloat("costByQuality" + i, basket.mushroomsInBasket[i].costByQuality);
         }
-
-
     }
 
 

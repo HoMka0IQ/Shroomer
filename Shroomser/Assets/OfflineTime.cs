@@ -5,12 +5,18 @@ using UnityEngine;
 
 public class OfflineTime : MonoBehaviour
 {
-    DateTimeOffset utcTime = DateTimeOffset.UtcNow;
     TimeSpan ts;
     public string TimeOff;
     public int AllInSecond;
+
+    public static OfflineTime instance;
+    private void Awake()
+    {
+        instance = GetComponent<OfflineTime>();
+    }
     void Start()
     {
+
         StartCoroutine(timer());
         if (PlayerPrefs.HasKey("LastSession"))
         {
@@ -20,8 +26,7 @@ public class OfflineTime : MonoBehaviour
         }
         
     }
-
-
+    
     IEnumerator timer()
     {
         while (true)
