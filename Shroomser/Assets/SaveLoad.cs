@@ -6,6 +6,7 @@ using UnityEditor;
 public class SaveLoad : MonoBehaviour
 {
     public Basket basket;
+    public MushroomData mushroomData;
 
     private void Awake()
     {
@@ -22,7 +23,6 @@ public class SaveLoad : MonoBehaviour
             {
                 ItemMushroom mushroom = ItemMushroom.CreateInstance<ItemMushroom>();
                 mushroom.quality = PlayerPrefs.GetFloat("MushroomQuality" + i);
-                mushroom.costByQuality = PlayerPrefs.GetFloat("costByQuality" + i);
                 basket.AddMushroom(mushroom);
                 
             }
@@ -37,7 +37,7 @@ public class SaveLoad : MonoBehaviour
         for (int i = 0; i < basket.mushroomsInBasket.Count; i++)
         {
             PlayerPrefs.SetFloat("MushroomQuality" + i, basket.mushroomsInBasket[i].quality);
-            PlayerPrefs.SetFloat("costByQuality" + i, basket.mushroomsInBasket[i].costByQuality);
+            PlayerPrefs.SetString("mushroomName" + i, basket.mushroomsInBasket[i].mushroomName);
         }
     }
 

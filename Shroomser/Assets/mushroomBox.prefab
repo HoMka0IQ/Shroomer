@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 585779125754678959}
   - component: {fileID: 8551950252926754968}
   - component: {fileID: 3256884445217830297}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: mushroomBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 317614830350707432}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 14.16, y: 1.02, z: 12.45}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
