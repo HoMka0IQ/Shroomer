@@ -26,7 +26,7 @@ public class Item3DViewer : MonoBehaviour, IDragHandler
     {
         instance = GetComponent<Item3DViewer>();
         insectSpawner = GetComponent<InsectSpawner>();
-        CloseIntemViewer();
+        CloseItemViewer();
     }
 
     private void Update()
@@ -40,6 +40,7 @@ public class Item3DViewer : MonoBehaviour, IDragHandler
         {
             Destroy(item);
         }
+        WindowsManager.instance.ClostAllWindows();
         UI.SetActive(true);
     }
     public void SetData(ItemMushroom MushroomData)
@@ -58,13 +59,14 @@ public class Item3DViewer : MonoBehaviour, IDragHandler
         insectSpawner.SpawnInsectOnMushroom(item, Random.Range(2,5));
     }
 
-    public void CloseIntemViewer()
+    public void CloseItemViewer()
     {
         if (item != null)
         {
             Destroy(item);
         }
 
+        
         UI.SetActive(false);
     }
     public void ShowQuality()
@@ -77,7 +79,7 @@ public class Item3DViewer : MonoBehaviour, IDragHandler
     }
     public void DestroyItem()
     {
-        CloseIntemViewer();
+        CloseItemViewer();
     }
     public void SaveItem()
     {
