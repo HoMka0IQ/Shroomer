@@ -23,6 +23,17 @@ public class SaveLoad : MonoBehaviour
             {
                 ItemMushroom mushroom = ItemMushroom.CreateInstance<ItemMushroom>();
                 mushroom.quality = PlayerPrefs.GetFloat("MushroomQuality" + i);
+                for (int t = 0; t < mushroomData.allMushroom.Length; t++)
+                {
+                    if (PlayerPrefs.GetString("mushroomName" + i) == mushroomData.allMushroom[t].mushroomName)
+                    {
+                        mushroom.costByQuality = mushroomData.allMushroom[t].costByQuality;
+                        mushroom.mushroomName = mushroomData.allMushroom[t].mushroomName;
+                        mushroom.icon = mushroomData.allMushroom[t].icon;
+                        mushroom.rarity = mushroomData.allMushroom[t].rarity;
+                        break;
+                    }
+                }
                 basket.AddMushroom(mushroom);
                 
             }

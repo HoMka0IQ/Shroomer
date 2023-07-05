@@ -7,18 +7,24 @@ public class HightScrollViewContent : MonoBehaviour
 {
     RectTransform rectTransform;
     GridLayoutGroup gridLayout;
+    public Basket basket;
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         gridLayout = GetComponent<GridLayoutGroup>();
     }
 
+    private void Update()
+    {
+        SetHeight();
+    }
     public void SetHeight()
     {
-        if (transform.childCount == 0)
+        if (basket.mushroomsInBasket.Count == 0)
         {
             return;
         }
-        rectTransform.sizeDelta = new Vector2(0, (transform.GetChild(0).GetComponent<RectTransform>().rect.height * transform.childCount) + gridLayout.spacing.y);
+        Debug.Log("ss");
+        rectTransform.sizeDelta = new Vector2(0, (gridLayout.cellSize.y + gridLayout.spacing.y) * basket.mushroomsInBasket.Count);
     }
 }

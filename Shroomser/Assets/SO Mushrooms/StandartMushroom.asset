@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6ae279e73c60ba47a61595d70bfeba7, type: 3}
   m_Name: StandartMushroom
   m_EditorClassIdentifier: 
+  mushroomName: Cep
+  icon: {fileID: 21300000, guid: 73674b4ce7cabb04ab8811ed6d3abeda, type: 3}
   Model: {fileID: 1362693283917440294, guid: b71239a385c21404a93986aacb55feca, type: 3}
   maxQuality: 100
   minQuality: 1

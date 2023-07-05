@@ -8,22 +8,25 @@ public class InventoryManager : MonoBehaviour
     public Transform content;
     public Basket basket;
     List<GameObject> slots = new List<GameObject>();
-    void Start()
+    public HightScrollViewContent hightScroll;
+    public GameObject InventoryWindow;
+
+    public static InventoryManager instance;
+    private void Awake()
     {
-        
+        instance = GetComponent<InventoryManager>();
+    }
+    public void OpenCloseInventory()
+    {
+        InventoryWindow.SetActive(!InventoryWindow.activeSelf);
+        ReloadInventory();
+    }
+    public void ReloadInventory()
+    {
+        LoadInventorySlots(basket.mushroomsInBasket);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public void OpenInventory()
-    {
-        LoadInventory(basket.mushroomsInBasket);
-    }
-
-    void LoadInventory(List<ItemMushroom> items)
+    void LoadInventorySlots(List<ItemMushroom> items)
     {
         if (slots.Count > 0)
         {
@@ -39,6 +42,20 @@ public class InventoryManager : MonoBehaviour
             Slot slotScript = sl.GetComponent<Slot>();
             slotScript.SetData(items[i]);
             slots.Add(sl);
+        }
+        hightScroll.SetHeight();
+    }
+
+    public void DeleteItem(ItemMushroom item)
+    {
+        for (int i = 0; i < basket.mushroomsInBasket.Count; i++)
+        {
+            if (basket.mushroomsInBasket[i] == item)
+            {
+                basket.mushroomsInBasket.RemoveAt(i);
+                ReloadInventory();
+                return;
+            }
         }
     }
 }

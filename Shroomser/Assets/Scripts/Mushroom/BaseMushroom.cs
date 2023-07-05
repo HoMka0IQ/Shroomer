@@ -18,7 +18,7 @@ public abstract class BaseMushroom : MonoBehaviour
         _mushroom.costByQuality = mushroom.costByQuality;
         _mushroom.rarity = rarity;
         _mushroom.icon = mushroom.icon;
-        _mushroom.name = mushroom.name;
+        _mushroom.mushroomName = mushroom.mushroomName;
     }
 
 }

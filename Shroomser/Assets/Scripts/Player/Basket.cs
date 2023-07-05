@@ -24,5 +24,6 @@ public class Basket : MonoBehaviour
     public void AddMushroom(ItemMushroom mushroom)
     {
         mushroomsInBasket.Add(mushroom);
+        InventoryManager.instance.ReloadInventory();
     }
 }
