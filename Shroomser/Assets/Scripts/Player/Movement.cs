@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] float WalkSpeed = 6f;
-    float _walkSpeed;
-    public bool stopPlayer;
+    [SerializeField]  float WalkSpeed = 6f;
+    public float MaxSpeed;
+
     [SerializeField] float gravity = -13.0f;
 
     [SerializeField] [Range(0.0f, 0.5f)] float moveSmoothTime = 0.3f;
@@ -24,24 +24,23 @@ public class Movement : MonoBehaviour
     
     public Animator Animator;
     public SpeedValue SpeedValue;
-    
+
+    public static Movement instance;
+
+    private void Awake()
+    {
+        instance = GetComponent<Movement>();
+    }
     void Start()
     {
-        _walkSpeed = WalkSpeed;
+        WalkSpeed = MaxSpeed;
         controller = GetComponent<CharacterController>();
     }
 
     void Update()
     {
         UpdateMovement();
-        if (stopPlayer)
-        {
-            WalkSpeed = 0;
-        }
-        else
-        {
-            WalkSpeed = _walkSpeed;
-        }
+
         //if (SpeedValue.velocity.magnitude > 0.1f)
         //{
         //    Animator.SetBool("Walk", true);
@@ -51,6 +50,17 @@ public class Movement : MonoBehaviour
         //    Animator.SetBool("Walk", false);
         //}
         //Animator.SetFloat("Speed", SpeedValue.velocity.magnitude / 15);
+    }
+
+    public void DecreaceSpeed(float valueInProcent)
+    {
+        WalkSpeed = WalkSpeed - ((MaxSpeed * valueInProcent) / 100);
+        WalkSpeed = Mathf.Clamp(WalkSpeed, 0, MaxSpeed);
+    }
+    public void IncreaceSpeed(int valueInProcent)
+    {
+        WalkSpeed = WalkSpeed + ((MaxSpeed * valueInProcent) / 100);
+        WalkSpeed = Mathf.Clamp(WalkSpeed, 0, MaxSpeed);
     }
 
     void UpdateMovement()

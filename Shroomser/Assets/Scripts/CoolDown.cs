@@ -46,7 +46,7 @@ public class CoolDown : MonoBehaviour
                 Timer = 0;
                 _timerInside = 0;
                 coolDownUIMainGO.SetActive(false);
-                movenent.stopPlayer = false;
+                Movement.instance.IncreaceSpeed(100);
 
                 actionBtn.interactable = true;
                 if (EventAfterCD != null)
@@ -62,7 +62,7 @@ public class CoolDown : MonoBehaviour
         Timer = time;
 
         actionBtn.interactable = false;
-        movenent.stopPlayer = true;
+        Movement.instance.DecreaceSpeed(100);
         EventAfterCD.AddListener(delegate { Listener(); });
 
     }

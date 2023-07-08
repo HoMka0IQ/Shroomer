@@ -65,6 +65,7 @@ public class Itemtaker : MonoBehaviour
         box.transform.SetParent(inHand.transform);
         box.transform.rotation = inHand.transform.rotation;
         isInHand = true;
+        Movement.instance.DecreaceSpeed(20);
     }
     void DropBox()
     {
@@ -73,5 +74,6 @@ public class Itemtaker : MonoBehaviour
         box.GetComponent<Rigidbody>().useGravity = true;
         box = null;
         isInHand = false;
+        Movement.instance.IncreaceSpeed(20);
     }
 }
