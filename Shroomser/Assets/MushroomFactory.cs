@@ -38,7 +38,14 @@ public class MushroomFactory : MonoBehaviour
     }
     public void InstantiateMushroomBox()
     {
-        Instantiate(boxPrefab, SpawnBoxPosition.position, Quaternion.identity);
+        GameObject box = Instantiate(boxPrefab, SpawnBoxPosition.position, Quaternion.identity);
+        SaveLoadBoxes.instance.AddBoxes(box.GetComponent<BoxManager>());
+        float cost = 0;
+        for (int i = 0; i < mushroomsInFactory.Count; i++)
+        {
+            cost += mushroomsInFactory[i].costByQuality * mushroomsInFactory[i].quality;
+        }
+        box.GetComponent<BoxManager>().cost = (int)cost;
         mushroomsInFactory.Clear();
         TextReload();
     }
@@ -65,6 +72,4 @@ public class MushroomFactory : MonoBehaviour
             }
         }
     }
-
-
 }

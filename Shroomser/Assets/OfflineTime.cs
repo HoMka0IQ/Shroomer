@@ -10,13 +10,9 @@ public class OfflineTime : MonoBehaviour
     public int AllInSecond;
 
     public static OfflineTime instance;
-    private void Awake()
+    private void OnEnable()
     {
         instance = GetComponent<OfflineTime>();
-    }
-    void Start()
-    {
-
         StartCoroutine(timer());
         if (PlayerPrefs.HasKey("LastSession"))
         {
@@ -24,7 +20,6 @@ public class OfflineTime : MonoBehaviour
             TimeOff = ts.Days + ":" + ts.Hours + ":" + ts.Minutes + ":" + ts.Seconds;
             AllInSecond = ts.Seconds + (ts.Minutes * 60) + (ts.Hours * 60 * 60) + (ts.Days * 60 * 60 * 24);
         }
-        
     }
     
     IEnumerator timer()

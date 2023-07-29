@@ -9,7 +9,10 @@ public abstract class BaseMushroom : MonoBehaviour
     public ItemMushroom _mushroom;
     public MushroomRarity.Rarity rarity;
 
-
+    public ScriptableObjectMushroom GetOriginalMushroom()
+    {
+        return mushroom;
+    }
     private void Start()
     {
         _mushroom = ItemMushroom.CreateInstance<ItemMushroom>();
@@ -21,4 +24,5 @@ public abstract class BaseMushroom : MonoBehaviour
         _mushroom.mushroomName = mushroom.mushroomName;
     }
 
+    
 }

@@ -20,10 +20,11 @@ public class Movement : MonoBehaviour
     Vector2 currentDir = Vector2.zero;
     Vector2 currentDirVelocity = Vector2.zero;
 
-    public VariableJoystick variableJoystick;
-    
+    public VariableJoystick Joystick;
+
     public Animator Animator;
     public SpeedValue SpeedValue;
+    public RotatePlayer rotatePlayer;
 
     public static Movement instance;
 
@@ -41,31 +42,33 @@ public class Movement : MonoBehaviour
     {
         UpdateMovement();
 
-        //if (SpeedValue.velocity.magnitude > 0.1f)
-        //{
-        //    Animator.SetBool("Walk", true);
-        //}
-        //else
-        //{
-        //    Animator.SetBool("Walk", false);
-        //}
-        //Animator.SetFloat("Speed", SpeedValue.velocity.magnitude / 15);
+        if (SpeedValue.velocity.magnitude > 0.1f)
+        {
+            Animator.SetBool("Walk", true);
+        }
+        if (Joystick.Horizontal + Joystick.Vertical == 0)
+        {
+            Animator.SetBool("Walk", false);
+        }
+        Animator.SetFloat("Speed", SpeedValue.velocity.magnitude / MaxSpeed);
     }
 
     public void DecreaceSpeed(float valueInProcent)
     {
         WalkSpeed = WalkSpeed - ((MaxSpeed * valueInProcent) / 100);
         WalkSpeed = Mathf.Clamp(WalkSpeed, 0, MaxSpeed);
+        rotatePlayer.CurrentSmoothRotate = rotatePlayer.CurrentSmoothRotate - ((rotatePlayer.MaxSmoothRot * valueInProcent) / 100);
     }
     public void IncreaceSpeed(int valueInProcent)
     {
         WalkSpeed = WalkSpeed + ((MaxSpeed * valueInProcent) / 100);
         WalkSpeed = Mathf.Clamp(WalkSpeed, 0, MaxSpeed);
+        rotatePlayer.CurrentSmoothRotate = rotatePlayer.CurrentSmoothRotate + ((rotatePlayer.MaxSmoothRot * valueInProcent) / 100);
     }
 
     void UpdateMovement()
     {
-        Vector2 targenDir = new Vector2(variableJoystick.Direction.x, variableJoystick.Direction.y);
+        Vector2 targenDir = new Vector2(Joystick.Direction.x, Joystick.Direction.y);
 
         currentDir = Vector2.SmoothDamp(currentDir, targenDir, ref currentDirVelocity, moveSmoothTime);
 

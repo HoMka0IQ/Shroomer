@@ -31,6 +31,7 @@ public class CoolDown : MonoBehaviour
     {
         if (Timer > 0)
         {
+            movenent.Animator.SetBool("Search", true);
             coolDownUIMainGO.SetActive(true);
             if(CoolDownUIPos != null)
                 coolDownUIMainGO.transform.position = cam.WorldToScreenPoint(CoolDownUIPos.position);
@@ -52,6 +53,7 @@ public class CoolDown : MonoBehaviour
                 if (EventAfterCD != null)
                     EventAfterCD.Invoke();
                 EventAfterCD.RemoveAllListeners();
+                movenent.Animator.SetBool("Search", false);
             }
         }
     }

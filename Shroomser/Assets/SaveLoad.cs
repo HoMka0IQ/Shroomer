@@ -8,6 +8,8 @@ public class SaveLoad : MonoBehaviour
     public Basket basket;
     public MushroomData mushroomData;
 
+    public CarManager carManager;
+
     private void Awake()
     {
         loadSistem();
@@ -38,6 +40,36 @@ public class SaveLoad : MonoBehaviour
                 
             }
         }
+        //Car
+        if (PlayerPrefs.HasKey("CarTimer") && PlayerPrefs.GetInt("CarBoxCount") > 0)
+        {
+            carManager.currentCD_Time = PlayerPrefs.GetFloat("CarTimer");
+            carManager.currentCD_Time -= OfflineTime.instance.AllInSecond;
+            Debug.Log(carManager.currentCD_Time);
+            Debug.Log(OfflineTime.instance.AllInSecond);
+            carManager.currentCD_Time = Mathf.Clamp(carManager.currentCD_Time, 0, carManager.maxCD_Timer);
+            if (carManager.currentCD_Time < carManager.maxCD_Timer)
+            {
+                carManager.MainCarGO.SetActive(false);
+            }
+            else
+            {
+                carManager.MainCarGO.SetActive(true);
+                carManager.carAnimController.SetAnim("Idle_Car");
+            }
+        }
+        else
+        {
+            carManager.currentCD_Time = carManager.maxCD_Timer;
+        }
+
+        if (PlayerPrefs.HasKey("CarBoxCount"))
+        {
+            for (int i = 0; i < PlayerPrefs.GetInt("CarBoxCount"); i++)
+            {
+                carManager.currentBox.Add(PlayerPrefs.GetInt("CarBoxCoxt" + i));
+            }
+        }
         
     }
 
@@ -50,6 +82,14 @@ public class SaveLoad : MonoBehaviour
             PlayerPrefs.SetFloat("MushroomQuality" + i, basket.mushroomsInBasket[i].quality);
             PlayerPrefs.SetString("mushroomName" + i, basket.mushroomsInBasket[i].mushroomName);
         }
+        //Car
+        PlayerPrefs.SetFloat("CarTimer", carManager.currentCD_Time);
+        PlayerPrefs.SetInt("CarBoxCount", carManager.currentBox.Count);
+        for (int i = 0; i < carManager.currentBox.Count; i++)
+        {
+            PlayerPrefs.SetInt("CarBoxCoxt" + i, carManager.currentBox[i]);
+        }
+        
     }
 
 
@@ -58,13 +98,12 @@ public class SaveLoad : MonoBehaviour
         while (true)
         {
             SaveSistem();
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
         }
     }
     private void OnApplicationQuit()
     {
         SaveSistem();
-        Debug.Log("sss");
     }
 
     public void DeleteAllKey()

@@ -24,7 +24,6 @@ public class HightScrollViewContent : MonoBehaviour
         {
             return;
         }
-        Debug.Log("ss");
         rectTransform.sizeDelta = new Vector2(0, (gridLayout.cellSize.y + gridLayout.spacing.y) * basket.mushroomsInBasket.Count);
     }
 }
