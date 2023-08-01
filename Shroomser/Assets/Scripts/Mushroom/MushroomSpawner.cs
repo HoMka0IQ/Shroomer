@@ -8,18 +8,14 @@ public class MushroomSpawner : MonoBehaviour
 
     public GameObject Mushroom;
 
-    private void Start()
-    {
-        int RandomNumber = Random.Range(0, 100);
-        Collider[] mushrooms = Physics.OverlapSphere(transform.position, 5, LayerMask.GetMask("Items"));
-        if (RandomNumber < 34 && mushrooms.Length == 0)
-        {
-            Spawn();
-        }
-    }
     
     public void Spawn()
     {
+        Collider[] mushrooms = Physics.OverlapSphere(transform.position, 5, LayerMask.GetMask("Items"));
+        if (mushrooms.Length > 0)
+        {
+            return;
+        }
         Vector2 randomCircle = Random.insideUnitCircle.normalized * Random.Range(3, 5);
         Vector3 spawnPosition = new Vector3(randomCircle.x, 0f, randomCircle.y) + transform.position;
 

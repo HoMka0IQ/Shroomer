@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InsectPrefab:
   - {fileID: 5974254923785816999, guid: edb54ed0484c9144993435903c29ce18, type: 3}
-  IncreaseQuality: 05000000
+  - {fileID: 5974254923785816999, guid: 06c2871845d62944ca9d15cb75160ad0, type: 3}
+  IncreaseQuality: 050000000a000000

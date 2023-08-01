@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1280812174354775311}
   - component: {fileID: 1027718353}
+  - component: {fileID: 2177330334026445133}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -130,6 +131,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mushroom: {fileID: 398363686607843962, guid: 2e1e0522ff95f8f4f8703de5d5d1598a, type: 3}
+--- !u!205 &2177330334026445133
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913338585685764021}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 15.837628, z: 0}
+  m_Size: 10
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.25014025
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 7910065475701048840}
+    - renderer: {fileID: 3977475259467035574}
+  m_Enabled: 0
 --- !u!1 &5797943272197389651
 GameObject:
   m_ObjectHideFlags: 0
