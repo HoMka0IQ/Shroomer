@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6ae279e73c60ba47a61595d70bfeba7, type: 3}
-  m_Name: ChanterelleMushroom
+  m_Name: Cep
   m_EditorClassIdentifier: 
-  mushroomName: Chanterelle
-  icon: {fileID: 21300000, guid: e61a4a3abf2d26f4981dc70176cb42d7, type: 3}
-  Model: {fileID: 4213209789301150905, guid: 4f05dfe7adfac714fa027dabc91ee1d8, type: 3}
-  Prefab: {fileID: 398363686607843962, guid: 2e1e0522ff95f8f4f8703de5d5d1598a, type: 3}
+  mushroomName: Cep
+  icon: {fileID: 21300000, guid: 73674b4ce7cabb04ab8811ed6d3abeda, type: 3}
+  Model: {fileID: 1362693283917440294, guid: b71239a385c21404a93986aacb55feca, type: 3}
+  Prefab: {fileID: 398363686607843962, guid: c7c0d93f517e21045887bdfc96ab89a8, type: 3}
   maxQuality: 100
   minQuality: 1
-  costByQuality: 15
+  costByQuality: 2
   rarity: 0

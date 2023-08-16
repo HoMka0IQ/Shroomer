@@ -7,6 +7,7 @@ public class MushroomRarity : MonoBehaviour
     public enum Rarity
     {
         Common,
+        Uncommon,
         Rare,
         Fantastic,
         Legendary

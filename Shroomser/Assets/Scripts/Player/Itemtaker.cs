@@ -43,7 +43,7 @@ public class Itemtaker : MonoBehaviour
         {
             item = Items[Random.Range(0, Items.Length)].gameObject;
             Item3DViewer.instance.OpenItemViewer();
-            Item3DViewer.instance.SetData(item.GetComponent<BaseMushroom>()._mushroom);
+            Item3DViewer.instance.SetData(item.GetComponent<BaseMushroom>().GetItemMushroom());
             Destroy(item);
         }
         else if (CheckItemAroundPlayer(LayerMask.GetMask("BoxItem")))

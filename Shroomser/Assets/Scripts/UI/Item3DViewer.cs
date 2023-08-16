@@ -57,6 +57,9 @@ public class Item3DViewer : MonoBehaviour, IDragHandler
         item.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
         item.AddComponent<MeshCollider>();
         insectSpawner.SpawnInsectOnMushroom(item, Random.Range(2,5));
+        xRot = 0;
+        yRot = 0;
+        SetMushroomPos();
     }
 
     public void CloseItemViewer()
@@ -90,6 +93,12 @@ public class Item3DViewer : MonoBehaviour, IDragHandler
     {
         xRot -= eventData.delta.y / smooth;
         yRot -= eventData.delta.x / smooth;
+        SetMushroomPos();
+    }
+        
+
+    void SetMushroomPos()
+    {
         if (xRot > 20)
         {
             xRot = 20;

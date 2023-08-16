@@ -31,29 +31,29 @@ public class CarManager : MonoBehaviour
 
     private void Update()
     {
-        if (currentBox.Count >= maxBox)
+        if (currentBox.Count < maxBox)
         {
-            currentCD_Time -= Time.deltaTime;
-            if (currentCD_Time <= 0)
-            {
-                int allMoney = 0;
-                for (int i = 0; i < currentBox.Count; i++)
-                {
-                    allMoney += currentBox[i];
-                }
-                Debug.Log(allMoney);
-                
-                currentBox.Clear();
-                currentCD_Time = maxCD_Timer;
-                ReloadText();
-                MainCarGO.SetActive(true);
-                carAnimController.SetAnim("Coming_Car");
-                return;
-            }
-            OffBoxLoading();
-            carAnimController.SetAnim("Ride_Car");
-            
+            return;
         }
+        currentCD_Time -= Time.deltaTime;
+        if (currentCD_Time <= 0)
+        {
+            int allMoney = 0;
+            for (int i = 0; i < currentBox.Count; i++)
+            {
+                allMoney += currentBox[i];
+            }
+            PlayerData.instance.IncreaceMoney(allMoney);
+
+            currentBox.Clear();
+            currentCD_Time = maxCD_Timer;
+            ReloadText();
+            MainCarGO.SetActive(true);
+            carAnimController.SetAnim("Coming_Car");
+            return;
+        }
+        OffBoxLoading();
+        carAnimController.SetAnim("Ride_Car");
     }
     public void OffBoxLoading()
     {
