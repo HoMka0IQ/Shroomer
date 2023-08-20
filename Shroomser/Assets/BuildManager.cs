@@ -17,6 +17,8 @@ public class BuildManager : MonoBehaviour
     public TMP_Text timerText;
 
     public GameObject btnMenu;
+
+    public GameObject NextZone;
     private void Start()
     {
         if (currentTime == 0 && buildID < 0)
@@ -34,6 +36,11 @@ public class BuildManager : MonoBehaviour
         Instantiate(allFactory[buildID], spawnPoint.transform.position, spawnPoint.transform.rotation);
         zone.SetActive(false);
         buildingGO.SetActive(false);
+        if (NextZone != null)
+        {
+            NextZone.SetActive(true);
+        }
+        
     }
 
     private void Update()

@@ -6,7 +6,8 @@ using UnityEditor;
 public class MushroomSpawner : MonoBehaviour
 {
 
-    public GameObject Mushroom;
+    GameObject Mushroom;
+    public MushroomData mushroomData;
 
     
     public void Spawn()
@@ -26,12 +27,28 @@ public class MushroomSpawner : MonoBehaviour
         {
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
+
+                //Randomize
+                float randomValue = Random.value;
+                Debug.Log(randomValue);
+                float totalWeight = 0;
+
+                foreach (ScriptableObjectMushroom som in mushroomData.allMushroom)
+                {
+                    Debug.Log(som.rarity);
+                    totalWeight += MushroomRarity.instance.GetValueFromEnum(som.rarity);
+                    if (randomValue <= totalWeight)
+                    {
+                        Mushroom = som.Prefab;
+                        break;
+                    }
+                }
+                //
                 Vector3 rayEndPosition = hit.point;
 
                 rayEndPosition.y += Mushroom.transform.localScale.y / 2;
+
                 GameObject newObject = Instantiate(Mushroom, rayEndPosition, Quaternion.identity);
-                float randomSize = Random.Range(0.75f, 1.5f);
-                newObject.transform.localScale = new Vector3(randomSize, randomSize, randomSize);
                 SaveLoadMushroom.instance.AddMushroom(newObject);
             }
         }
@@ -39,19 +56,4 @@ public class MushroomSpawner : MonoBehaviour
 
 
 }
-#if UNITY_EDITOR
-[CustomEditor(typeof(MushroomSpawner))]
-public class SpawnMushroom : Editor
-{
-    public override void OnInspectorGUI()
-    {
-        DrawDefaultInspector();
-        MushroomSpawner testw = (MushroomSpawner)target;
-        if (GUILayout.Button("Spawn"))
-        {
-            testw.Spawn();
-        }
 
-    }
-}
-#endif

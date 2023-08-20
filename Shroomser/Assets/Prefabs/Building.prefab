@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8481452020458809728}
-  m_LocalRotation: {x: -0.70710737, y: -0, z: -0, w: 0.7071063}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 27.1, y: 2, z: 5.95}
   m_LocalScale: {x: 0.79999995, y: 0.8000002, z: 0.8000002}
   m_ConstrainProportionsScale: 0
@@ -35,7 +35,7 @@ Transform:
   - {fileID: 906262258261968729}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!114 &8481452020458809855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de7e47f20971bab47a270f32a3945341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 20
+  maxTime: 25
   currentTime: 0
   buildID: -1
   zone: {fileID: 8481452020556026033}
@@ -59,6 +59,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 8481452021104629136}
   timerText: {fileID: 8481452021533652549}
   btnMenu: {fileID: 8481452022363416879}
+  NextZone: {fileID: 0}
 --- !u!1 &8481452020556026033
 GameObject:
   m_ObjectHideFlags: 0
@@ -1834,7 +1835,7 @@ PrefabInstance:
     - target: {fileID: 8245048277444385837, guid: dc5c6c1b0325d2a42b8bc6d82b394cda,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8730116921467635351, guid: dc5c6c1b0325d2a42b8bc6d82b394cda,
         type: 3}

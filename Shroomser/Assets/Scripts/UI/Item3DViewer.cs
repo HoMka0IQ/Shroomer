@@ -48,10 +48,25 @@ public class Item3DViewer : MonoBehaviour, IDragHandler
         this.MushroomData = MushroomData;
         SpawnObjectToView();
     }
+    float GetModelZise()
+    {
+        switch (MushroomData.size)
+        {
+            case ModelSize.Size.Default:
+                return 1f;
+            case ModelSize.Size.Big:
+                return 0.75f;
+            case ModelSize.Size.Small:
+                return 1.25f;
 
+            default:
+                return 1f;
+        }
+    }
     public void SpawnObjectToView()
     {
         item = Instantiate(MushroomData.Model, PlaceForSpawnItem.transform);
+        item.transform.localScale *= GetModelZise();
         item.transform.position = PlaceForSpawnItem.transform.position;
         item.transform.rotation = PlaceForSpawnItem.transform.rotation;
         item.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;

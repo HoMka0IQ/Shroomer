@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7224cea033e40e1479b6771a8529b595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mushroom: {fileID: 398363686607843962, guid: 2e1e0522ff95f8f4f8703de5d5d1598a, type: 3}
+  mushroomData: {fileID: 11400000, guid: f9992a0ea876c0e41b860ea243ccfd1a, type: 2}
 --- !u!205 &2177330334026445133
 LODGroup:
   m_ObjectHideFlags: 0

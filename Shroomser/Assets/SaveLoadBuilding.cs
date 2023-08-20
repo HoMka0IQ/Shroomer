@@ -16,17 +16,21 @@ public class SaveLoadBuilding : MonoBehaviour
 
     public void SaveSistem()
     {
-        List<BuildManager> CleareMushroom = new List<BuildManager>();
+
+
         for (int i = 0; i < allbuildManager.Count; i++)
         {
-            if (allbuildManager[i] != null)
+            int activeBuilding;
+            if (allbuildManager[i].gameObject.activeSelf == true)
             {
-                CleareMushroom.Add(allbuildManager[i]);
+                activeBuilding = 1;
             }
-        }
-        allbuildManager = CleareMushroom;
-        for (int i = 0; i < allbuildManager.Count; i++)
-        {
+            else
+            {
+                activeBuilding = 0;
+            }
+            PlayerPrefs.SetInt("ActiveSelfBuild" + i, activeBuilding);
+
             PlayerPrefs.SetInt("buildID" + i, allbuildManager[i].buildID);
             PlayerPrefs.SetFloat("buildTimer" + i, allbuildManager[i].currentTime);
         }
@@ -39,13 +43,26 @@ public class SaveLoadBuilding : MonoBehaviour
         {
             return;
         }
+        Debug.Log(23);
         for (int i = 0; i < PlayerPrefs.GetInt("BuildingManagerCount"); i++)
         {
+            if (PlayerPrefs.GetInt("ActiveSelfBuild" + i) != 0)
+            {
+                allbuildManager[i].gameObject.SetActive(true);
+            }
+
+
             allbuildManager[i].buildID = PlayerPrefs.GetInt("buildID" + i);
             allbuildManager[i].currentTime = PlayerPrefs.GetFloat("buildTimer" + i);
+            if (allbuildManager[i].buildID > -1)
+            {
+                allbuildManager[i].currentTime += OfflineTime.instance.AllInSecond;
+            }
+ 
             if (allbuildManager[i].currentTime >= allbuildManager[i].maxTime)
             {
                 allbuildManager[i].SetActiveBuild();
+
             }
         }
     }

@@ -19,4 +19,5 @@ MonoBehaviour:
   maxQuality: 100
   minQuality: 1
   costByQuality: 2.5
-  rarity: 1
+  rarity: 2
+  size: 0

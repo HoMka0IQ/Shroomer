@@ -10,6 +10,7 @@ public class ItemMushroom : ScriptableObject
     public float quality;
     public float costByQuality;
     public MushroomRarity.Rarity rarity;
+    public ModelSize.Size size;
 
     public void IncreaseQuality(int number)
     {

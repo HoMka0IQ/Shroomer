@@ -14,4 +14,5 @@ public class ScriptableObjectMushroom : ScriptableObject
     public float minQuality;
     public float costByQuality;
     public MushroomRarity.Rarity rarity;
+    public ModelSize.Size size;
 }
