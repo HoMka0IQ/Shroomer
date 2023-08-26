@@ -27,10 +27,15 @@ public class CustomButton : MonoBehaviour ,IPointerDownHandler ,IPointerUpHandle
     {
         rectTransform.localScale = rectTransform.localScale * 1.2f;
 
+        action.Invoke();
+        if (OffSprite == null)
+        {
+            return;
+        }
         isOn = !isOn;
         image.sprite = isOn ? OnSprite : OffSprite;
 
-        action.Invoke();
+        
     }
 
 

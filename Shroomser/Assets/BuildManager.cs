@@ -19,7 +19,8 @@ public class BuildManager : MonoBehaviour
     public TMP_Text timerText;
 
 
-    public GameObject btnMenu;
+    public GameObject CanvasMenu;
+    public GameObject windowMenu;
 
     public GameObject NextZone;
     private void Start()
@@ -62,15 +63,15 @@ public class BuildManager : MonoBehaviour
         }
     }
 
-    public void ShowBtn(GameObject menu)
+    public void ShowHideCanvas()
     {
-        menu.SetActive(true);
+        CanvasMenu.SetActive(!CanvasMenu.activeSelf);
         _buildID = -1;
     }
 
-    public void HideBtn()
+    public void ShowHideWindow()
     {
-        btnMenu.SetActive(false);
+        windowMenu.SetActive(!windowMenu.activeSelf);
     }
 
     public void ChooseBuildingBTN(int BuildID)
@@ -86,6 +87,7 @@ public class BuildManager : MonoBehaviour
         }
 
         buildID = _buildID;
-        btnMenu.SetActive(false);
+        ShowHideWindow();
+        ShowHideCanvas();
     }
 }
