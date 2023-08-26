@@ -5,6 +5,8 @@ using TMPro;
 
 public class BuildManager : MonoBehaviour
 {
+    public int cost;
+
     public float maxTime;
     public float currentTime = 0;
     int _buildID;
@@ -15,6 +17,7 @@ public class BuildManager : MonoBehaviour
     public GameObject spawnPoint;
 
     public TMP_Text timerText;
+
 
     public GameObject btnMenu;
 
@@ -77,6 +80,11 @@ public class BuildManager : MonoBehaviour
     }
     public void BuildIDSetterBTN()
     {
+        if (!PlayerData.instance.DecreaceMoney(cost))
+        {
+            return;
+        }
+
         buildID = _buildID;
         btnMenu.SetActive(false);
     }

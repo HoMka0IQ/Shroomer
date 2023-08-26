@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cep2
   m_EditorClassIdentifier: 
   mushroomName: Cep2
-  icon: {fileID: 21300000, guid: 73674b4ce7cabb04ab8811ed6d3abeda, type: 3}
+  icon: {fileID: 21300000, guid: b0e4b277c5d8dbb40a144c09afdeaadc, type: 3}
   Model: {fileID: 1638710843008804177, guid: 5559b52dbc2da2a4a9de6c45df0ee8a0, type: 3}
   Prefab: {fileID: 398363686607843962, guid: efb4d319bbad2c7459be6bb6e42da41c, type: 3}
   maxQuality: 100
