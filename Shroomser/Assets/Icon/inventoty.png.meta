@@ -122,8 +122,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2987
-        height: 2267
+        width: 2988
+        height: 2286
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,19 +141,40 @@ TextureImporter:
       name: inventoty_1
       rect:
         serializedVersion: 2
-        x: 3383
-        y: 15
-        width: 1558
-        height: 1566
+        x: 3730
+        y: 2281
+        width: 875
+        height: 5
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 298, y: 317, z: 370, w: 277}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: dcaee9d76c8c53d428026d04d0fa9893
       internalID: 1694704224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inventoty_2
+      rect:
+        serializedVersion: 2
+        x: 3329
+        y: 0
+        width: 1662
+        height: 1653
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdedded87cbba7b44b00517c6ad06081
+      internalID: 925755990
       vertices: []
       indices: 
       edges: []
@@ -171,6 +192,7 @@ TextureImporter:
     nameFileIdTable:
       inventoty_0: -1910429980
       inventoty_1: 1694704224
+      inventoty_2: 925755990
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

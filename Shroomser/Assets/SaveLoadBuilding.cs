@@ -43,7 +43,6 @@ public class SaveLoadBuilding : MonoBehaviour
         {
             return;
         }
-        Debug.Log(23);
         for (int i = 0; i < PlayerPrefs.GetInt("BuildingManagerCount"); i++)
         {
             if (PlayerPrefs.GetInt("ActiveSelfBuild" + i) != 0)

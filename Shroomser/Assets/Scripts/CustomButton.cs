@@ -9,11 +9,11 @@ public class CustomButton : MonoBehaviour ,IPointerDownHandler ,IPointerUpHandle
     RectTransform rectTransform;
     public UnityEvent action;
 
+    [Header("Sprite changer")]
     public Sprite OffSprite;
     public Sprite OnSprite;
-
-    bool isOn = false;
-    private void Start()
+    public GameObject window;
+    private void Awake()
     {
         image = GetComponent<Image>();
         rectTransform = GetComponent<RectTransform>();
@@ -26,17 +26,18 @@ public class CustomButton : MonoBehaviour ,IPointerDownHandler ,IPointerUpHandle
     public void OnPointerUp(PointerEventData eventData)
     {
         rectTransform.localScale = rectTransform.localScale * 1.2f;
-
         action.Invoke();
-        if (OffSprite == null)
+
+        if (OffSprite == null || window == null)
         {
             return;
         }
-        isOn = !isOn;
-        image.sprite = isOn ? OnSprite : OffSprite;
-
-        
+        OpenCloseSprite();
     }
 
+    public void OpenCloseSprite()
+    {
+        image.sprite = window.activeSelf ? OnSprite : OffSprite;
+    }
 
 }

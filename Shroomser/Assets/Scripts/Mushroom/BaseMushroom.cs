@@ -32,7 +32,6 @@ public abstract class BaseMushroom : MonoBehaviour
     protected virtual void SetSizeByQouality()
     {
         float Ran = (GetItemMushroom().quality / 100) / 2;
-        Debug.Log(Ran, gameObject);
         float randomSize = 0.75f + Ran;
         gameObject.transform.localScale = new Vector3(randomSize, randomSize, randomSize);
     }
