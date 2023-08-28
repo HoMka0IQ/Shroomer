@@ -256,7 +256,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3454671348079178376}
   m_LocalRotation: {x: 0.2588186, y: -0, z: -0, w: 0.965926}
-  m_LocalPosition: {x: 0, y: 0, z: -0.2499981}
+  m_LocalPosition: {x: 0, y: 0, z: -0.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -265,7 +265,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.73, y: 5.1600003}
+  m_AnchoredPosition: {x: 2.88, y: 5.47}
   m_SizeDelta: {x: 10.1766, y: 2.6346}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &3454671348079178381
@@ -330,7 +330,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0/5
+  m_text: '(0/5)<sprite=5> '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0c0364d1d2186e342bc6049f33e80af6, type: 2}
   m_sharedMaterial: {fileID: -1530118165858178243, guid: 0c0364d1d2186e342bc6049f33e80af6,
@@ -350,7 +350,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: a2a07b6cffa3af9449fc0ce7bfb3a5dc, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -454,7 +454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: {fileID: 3454671348079178378}
-  MaxCount: 1
+  MaxCount: 5
   mushroomsInFactory: []
   boxPrefab: {fileID: 7279670619208584393, guid: 9b0866d2376b2fd4c9294cdb379cb9fb,
     type: 3}

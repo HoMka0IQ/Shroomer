@@ -9,10 +9,13 @@ public class CustomButton : MonoBehaviour ,IPointerDownHandler ,IPointerUpHandle
     RectTransform rectTransform;
     public UnityEvent action;
 
+
     [Header("Sprite changer")]
     public Sprite OffSprite;
     public Sprite OnSprite;
     public GameObject window;
+
+
     private void Awake()
     {
         image = GetComponent<Image>();
@@ -20,12 +23,12 @@ public class CustomButton : MonoBehaviour ,IPointerDownHandler ,IPointerUpHandle
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        rectTransform.localScale = rectTransform.localScale / 1.2f;
+        rectTransform.localScale = rectTransform.localScale / 1.15f;
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        rectTransform.localScale = rectTransform.localScale * 1.2f;
+        rectTransform.localScale = rectTransform.localScale * 1.15f;
         action.Invoke();
 
         if (OffSprite == null || window == null)
@@ -39,5 +42,6 @@ public class CustomButton : MonoBehaviour ,IPointerDownHandler ,IPointerUpHandle
     {
         image.sprite = window.activeSelf ? OnSprite : OffSprite;
     }
+
 
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BaseMushroom : MonoBehaviour
+public abstract class BaseMushroom : BaseItem
 {
 
     [SerializeField] protected ScriptableObjectMushroom mushroom;

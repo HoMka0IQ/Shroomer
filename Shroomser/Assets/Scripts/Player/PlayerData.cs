@@ -12,6 +12,8 @@ public class PlayerData : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        LoadPlayerData();
+        resetMoneyText();
     }
     public void IncreaceMoney(int money)
     {
@@ -35,5 +37,19 @@ public class PlayerData : MonoBehaviour
     void resetMoneyText()
     {
         moneyText.text = money + "";
-    }    
+        SavePlayerData();
+    }
+    void SavePlayerData()
+    {
+        PlayerPrefs.SetFloat("money", money);
+    }
+    void LoadPlayerData()
+    {
+        if (PlayerPrefs.HasKey("money") == false)
+        {
+            money = 250;
+            return;
+        }
+        money = PlayerPrefs.GetFloat("money");
+    }
 }

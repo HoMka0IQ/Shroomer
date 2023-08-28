@@ -31,6 +31,11 @@ public class SaveLoadBuilding : MonoBehaviour
             }
             PlayerPrefs.SetInt("ActiveSelfBuild" + i, activeBuilding);
 
+            if (allbuildManager[i].factory != null)
+            {
+
+            }
+
             PlayerPrefs.SetInt("buildID" + i, allbuildManager[i].buildID);
             PlayerPrefs.SetFloat("buildTimer" + i, allbuildManager[i].currentTime);
         }

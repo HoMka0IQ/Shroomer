@@ -30,12 +30,12 @@ public class MushroomSpawner : MonoBehaviour
 
                 //Randomize
                 float randomValue = Random.value;
-                Debug.Log(randomValue);
+                
                 float totalWeight = 0;
 
                 foreach (ScriptableObjectMushroom som in mushroomData.allMushroom)
                 {
-                    Debug.Log(som.rarity);
+                    
                     totalWeight += MushroomRarity.instance.GetValueFromEnum(som.rarity);
                     if (randomValue <= totalWeight)
                     {

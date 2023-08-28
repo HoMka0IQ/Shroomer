@@ -18,6 +18,9 @@ public class SaveLoad : MonoBehaviour
 
     public void loadSistem()
     {
+
+
+        //Basket
         if (PlayerPrefs.HasKey("MaxCountInBasket"))
         {
             basket.maxCount = PlayerPrefs.GetInt("MaxCountInBasket");
