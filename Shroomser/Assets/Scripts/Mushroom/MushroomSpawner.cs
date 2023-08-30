@@ -33,7 +33,7 @@ public class MushroomSpawner : MonoBehaviour
                 
                 float totalWeight = 0;
 
-                foreach (ScriptableObjectItem som in mushroomData.allItem)
+                foreach (Item som in mushroomData.allItem)
                 {
                     
                     totalWeight += MushroomRarity.instance.GetValueFromEnum(som.rarity);

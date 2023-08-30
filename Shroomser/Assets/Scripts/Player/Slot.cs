@@ -14,7 +14,7 @@ public class Slot : MonoBehaviour
     {
         item = mushroom;
         mushroomName.text = mushroom.itemName;
-        cost.text = "cost: " + mushroom.costByQuality * mushroom.quality;
+        cost.text = "cost: " + mushroom.costByQuality * mushroom.currentQuality;
         icon.sprite = mushroom.icon;
     }
 

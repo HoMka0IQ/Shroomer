@@ -45,7 +45,7 @@ public abstract class BaseFactory : MonoBehaviour
         float cost = 0;
         for (int i = 0; i < ItemInFactory.Count; i++)
         {
-            cost += ItemInFactory[i].costByQuality * ItemInFactory[i].quality;
+            cost += ItemInFactory[i].costByQuality * ItemInFactory[i].currentQuality;
         }
         box.GetComponent<BoxManager>().cost = (int)cost;
         ItemInFactory.Clear();

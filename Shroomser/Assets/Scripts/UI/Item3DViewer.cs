@@ -91,8 +91,8 @@ public class Item3DViewer : MonoBehaviour, IDragHandler
     {
         if (MushroomData != null)
         {
-            qualityFillAmount.fillAmount = MushroomData.quality / 100;
-            qualiteText.text = (int)MushroomData.quality + "";
+            qualityFillAmount.fillAmount = MushroomData.currentQuality / 100;
+            qualiteText.text = (int)MushroomData.currentQuality + "";
         }
     }
     public void DestroyItem()

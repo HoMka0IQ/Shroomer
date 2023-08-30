@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8c9d665433fac143b1402950a86294b, type: 3}
+  m_Script: {fileID: 11500000, guid: 73abc2320278cc949970bc6b0c46daf6, type: 3}
   m_Name: ItemData
   m_EditorClassIdentifier: 
-  allMushroom:
+  allItem:
   - {fileID: 11400000, guid: 5c8f6daf2fbc9194c853d32eb4fbf26e, type: 2}
-  - {fileID: 11400000, guid: 9fe695e828d57564c825008899cc27f2, type: 2}
   - {fileID: 11400000, guid: 61ce7ce0372a7c8419c582d7b472215d, type: 2}
+  - {fileID: 11400000, guid: 9fe695e828d57564c825008899cc27f2, type: 2}

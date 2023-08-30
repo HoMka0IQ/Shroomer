@@ -39,7 +39,7 @@ public class SaveLoadMushroom : MonoBehaviour
             PlayerPrefs.SetFloat("PosZ" + i, Mushroom[i].transform.position.z);
 
 
-            PlayerPrefs.SetString("Name" + i, Mushroom[i].GetComponent<BaseMushroom>().GetOriginalMushroom().itemName);
+            PlayerPrefs.SetString("Name" + i, Mushroom[i].GetComponent<BaseMushroom>().GetItemMushroom().itemName);
         }
         PlayerPrefs.SetInt("MushroomNumber", Mushroom.Count);
     }

@@ -60,7 +60,9 @@ public class Itemtaker : MonoBehaviour
     void PickUpBox()
     {
         box.GetComponent<BoxCollider>().enabled = false;
-        box.GetComponent<Rigidbody>().useGravity = false;
+        Rigidbody _rb = box.GetComponent<Rigidbody>();
+        _rb.useGravity = false;
+        _rb.isKinematic = true;
         box.transform.position = inHand.transform.position;
         box.transform.SetParent(inHand.transform);
         box.transform.rotation = inHand.transform.rotation;
@@ -72,7 +74,9 @@ public class Itemtaker : MonoBehaviour
     {
         box.transform.SetParent(null);
         box.GetComponent<BoxCollider>().enabled = true;
-        box.GetComponent<Rigidbody>().useGravity = true;
+        Rigidbody _rb = box.GetComponent<Rigidbody>();
+        _rb.useGravity = true;
+        _rb.isKinematic = false;
         box = null;
         isInHand = false;
         Movement.instance.IncreaceSpeed(30);    

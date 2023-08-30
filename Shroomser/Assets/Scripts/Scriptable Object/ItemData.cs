@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "MushroomData", menuName = "Custom/MushroomData")]
+[CreateAssetMenu(fileName = "ItemData", menuName = "Custom/ItemData")]
 public class ItemData : ScriptableObject
 {
-    public ScriptableObjectItem[] allItem;
+    public Item[] allItem;
 }

@@ -53,7 +53,7 @@ public class SaveLoadBuilding : MonoBehaviour
                 for (int t = 0; t < allbuildManager[i].factory.ItemInFactory.Count; t++)
                 {
                     PlayerPrefs.SetString("ItemNameInFactory" + i + "/" + t, allbuildManager[i].factory.ItemInFactory[t].itemName);
-                    PlayerPrefs.SetFloat("ItemQualityInFactory" + i + "/" + t, allbuildManager[i].factory.ItemInFactory[t].quality);
+                    PlayerPrefs.SetFloat("ItemQualityInFactory" + i + "/" + t, allbuildManager[i].factory.ItemInFactory[t].currentQuality);
                 }
                 PlayerPrefs.SetInt("CountItemInFactory" + i, allbuildManager[i].factory.ItemInFactory.Count);
             }
@@ -105,19 +105,18 @@ public class SaveLoadBuilding : MonoBehaviour
                 {
                     allbuildManager[i].factory._currentTimer += OfflineTime.instance.AllInSecond;
                 }
-                
+
+                //fill factory with items
                 for (int t = 0; t < PlayerPrefs.GetInt("CountItemInFactory" + i); t++)
                 {
                     for (int y = 0; y < itemData.allItem.Length; y++)
                     {
                         if (PlayerPrefs.GetString("ItemNameInFactory" + i + "/" + t) == itemData.allItem[y].itemName)
                         {
-             
+                            allbuildManager[i].factory.ItemInFactory.Add(Instantiate(itemData.allItem[y]));
+                            allbuildManager[i].factory.ItemInFactory[t].currentQuality = PlayerPrefs.GetFloat("ItemQualityInFactory" + i + "/" + t);
                         }
                     }
-                   
-                    PlayerPrefs.SetString("ItemNameInFactory" + i + "/" + t, allbuildManager[i].factory.ItemInFactory[t].itemName);
-                    PlayerPrefs.SetFloat("ItemQualityInFactory" + i + "/" + t, allbuildManager[i].factory.ItemInFactory[t].quality);
                 }
             }
         }

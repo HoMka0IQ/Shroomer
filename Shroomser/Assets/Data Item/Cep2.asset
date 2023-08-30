@@ -9,16 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccd24e87198cdf34fba46738a105dbef, type: 3}
+  m_Script: {fileID: 11500000, guid: 4dd844cd4f0b1314aa29c45ade558559, type: 3}
   m_Name: Cep2
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 1
   itemName: Cep2
-  icon: {fileID: -68410993, guid: 78fd1c4fc27112e4dbdf3084bbea3ef5, type: 3}
+  icon: {fileID: 21300000, guid: b0e4b277c5d8dbb40a144c09afdeaadc, type: 3}
   Model: {fileID: 1638710843008804177, guid: 5559b52dbc2da2a4a9de6c45df0ee8a0, type: 3}
   Prefab: {fileID: 398363686607843962, guid: efb4d319bbad2c7459be6bb6e42da41c, type: 3}
-  maxQuality: 100
-  minQuality: 1
+  currentQuality: 0
   costByQuality: 1.5
   rarity: 1
   size: 1

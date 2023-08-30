@@ -10,7 +10,7 @@ public class InsectSpawner : MonoBehaviour
         {
             
             int t = Random.Range(0, insectData.InsectPrefab.Length);
-            if (Item3DViewer.instance.MushroomData.quality - insectData.IncreaseQuality[t] < 0)
+            if (Item3DViewer.instance.MushroomData.currentQuality - insectData.IncreaseQuality[t] < 0)
             {
                 return;
             }
@@ -52,7 +52,7 @@ public class InsectSpawner : MonoBehaviour
             Insect insect = newInsect.AddComponent<Insect>();
             insect.IncreaseQuality = insectData.IncreaseQuality[t];
 
-            Item3DViewer.instance.MushroomData.quality -= insectData.IncreaseQuality[t];
+            Item3DViewer.instance.MushroomData.currentQuality -= insectData.IncreaseQuality[t];
 
             // Напрямлюємо комаху на місце свого створення
             Vector3 lookDirection = spawnPosition - mushroomObject.transform.position;

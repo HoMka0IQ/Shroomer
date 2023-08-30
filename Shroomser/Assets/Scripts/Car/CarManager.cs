@@ -15,7 +15,7 @@ public class CarManager : MonoBehaviour
     public float maxCD_Timer;
     public float currentCD_Time;
 
-    public CarAnimController carAnimController;
+    [HideInInspector]public CarAnimController carAnimController;
 
     private void Start()
     {
@@ -26,7 +26,7 @@ public class CarManager : MonoBehaviour
 
     public void ReloadText()
     {
-        CountText.text = currentBox.Count + "/" + maxBox;
+        CountText.text = "(" + currentBox.Count + "/" + maxBox + ") <sprite=4>";
     }
 
     private void Update()
@@ -50,10 +50,15 @@ public class CarManager : MonoBehaviour
             ReloadText();
             MainCarGO.SetActive(true);
             carAnimController.SetAnim("Coming_Car");
+            ChangeCarOrder();
             return;
         }
         OffBoxLoading();
         carAnimController.SetAnim("Ride_Car");
+    }
+    public void ChangeCarOrder()
+    {
+        maxBox = Random.Range(3, 5);
     }
     public void OffBoxLoading()
     {

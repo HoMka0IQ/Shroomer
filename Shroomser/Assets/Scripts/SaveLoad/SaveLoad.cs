@@ -27,7 +27,7 @@ public class SaveLoad : MonoBehaviour
             for (int i = 0; i < PlayerPrefs.GetInt("CountInBasket"); i++)
             {
                 Item mushroom = Item.CreateInstance<Item>();
-                mushroom.quality = PlayerPrefs.GetFloat("MushroomQuality" + i);
+                mushroom.currentQuality = PlayerPrefs.GetFloat("MushroomQuality" + i);
                 for (int t = 0; t < mushroomData.allItem.Length; t++)
                 {
                     if (PlayerPrefs.GetString("mushroomName" + i) == mushroomData.allItem[t].itemName)
@@ -45,6 +45,14 @@ public class SaveLoad : MonoBehaviour
             }
         }
         //Car
+        if (PlayerPrefs.HasKey("OrderCount"))
+        {
+            carManager.maxBox = PlayerPrefs.GetInt("OrderCount");
+        }
+        else
+        {
+            carManager.ChangeCarOrder();
+        }
         if (PlayerPrefs.HasKey("CarTimer") && PlayerPrefs.GetInt("CarBoxCount") > 0)
         {
             carManager.currentCD_Time = PlayerPrefs.GetFloat("CarTimer");
@@ -83,12 +91,13 @@ public class SaveLoad : MonoBehaviour
         PlayerPrefs.SetInt("CountInBasket", basket.mushroomsInBasket.Count);
         for (int i = 0; i < basket.mushroomsInBasket.Count; i++)
         {
-            PlayerPrefs.SetFloat("MushroomQuality" + i, basket.mushroomsInBasket[i].quality);
+            PlayerPrefs.SetFloat("MushroomQuality" + i, basket.mushroomsInBasket[i].currentQuality);
             PlayerPrefs.SetString("mushroomName" + i, basket.mushroomsInBasket[i].itemName);
         }
         //Car
         PlayerPrefs.SetFloat("CarTimer", carManager.currentCD_Time);
         PlayerPrefs.SetInt("CarBoxCount", carManager.currentBox.Count);
+        PlayerPrefs.SetInt("OrderCount", carManager.maxBox);
         for (int i = 0; i < carManager.currentBox.Count; i++)
         {
             PlayerPrefs.SetInt("CarBoxCoxt" + i, carManager.currentBox[i]);
