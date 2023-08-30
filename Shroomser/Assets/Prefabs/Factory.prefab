@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 3454671348079178381}
   - component: {fileID: 3454671348079178378}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Number Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -450,17 +450,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 3454671348397867241}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ce75eab4adaf4d4ebcc7eeebf100c3e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e443e7792fc3b14b987b92204614cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WhichItemCanTaked: 1
   number: {fileID: 3454671348079178378}
   MaxCount: 5
-  mushroomsInFactory: []
+  ItemInFactory: []
   boxPrefab: {fileID: 7279670619208584393, guid: 9b0866d2376b2fd4c9294cdb379cb9fb,
     type: 3}
   SpawnBoxPosition: {fileID: 3454671347941960397}
   isWorking: 0
-  timerInSeconds: 10
+  timerInSeconds: 5
 --- !u!114 &3454671348397867243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,8 +598,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3454671348397867242}
-        m_TargetAssemblyTypeName: MushroomFactory, Assembly-CSharp
-        m_MethodName: AddMushroomInFactory
+        m_TargetAssemblyTypeName: BaseFactory, Assembly-CSharp
+        m_MethodName: AddItemInFactory
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

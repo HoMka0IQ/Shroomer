@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class InventoryManager : MonoBehaviour
     public GameObject InventoryWindow;
 
     public static InventoryManager instance;
+
+    public TMP_Text slotText;
     private void Awake()
     {
         instance = GetComponent<InventoryManager>();
@@ -26,7 +29,7 @@ public class InventoryManager : MonoBehaviour
         LoadInventorySlots(basket.mushroomsInBasket);
     }
 
-    void LoadInventorySlots(List<ItemMushroom> items)
+    void LoadInventorySlots(List<Item> items)
     {
         if (slots.Count > 0)
         {
@@ -42,11 +45,12 @@ public class InventoryManager : MonoBehaviour
             Slot slotScript = sl.GetComponent<Slot>();
             slotScript.SetData(items[i]);
             slots.Add(sl);
+            slotText.text = slots.Count + "/" + basket.maxCount;
         }
         hightScroll.SetHeight();
     }
 
-    public void DeleteItem(ItemMushroom item)
+    public void DeleteItem(Item item)
     {
         for (int i = 0; i < basket.mushroomsInBasket.Count; i++)
         {

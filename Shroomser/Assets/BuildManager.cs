@@ -24,7 +24,7 @@ public class BuildManager : MonoBehaviour
 
     public GameObject NextZone;
 
-    [HideInInspector]public GameObject factory;
+    [HideInInspector]public BaseFactory factory;
     private void Start()
     {
         if (currentTime == 0 && buildID < 0)
@@ -33,13 +33,14 @@ public class BuildManager : MonoBehaviour
             buildingGO.SetActive(false);
         }
     }
-    public void SetActiveBuild()
+    public void SpawningFactory()
     {
         if (buildID < 0)
         {
             return;
         }
-        factory = Instantiate(allFactory[buildID], spawnPoint.transform.position, spawnPoint.transform.rotation);
+        GameObject go = Instantiate(allFactory[buildID], spawnPoint.transform.position, spawnPoint.transform.rotation);
+        factory = go.GetComponent<BaseFactory>();
         zone.SetActive(false);
         buildingGO.SetActive(false);
         if (NextZone != null)
@@ -61,7 +62,7 @@ public class BuildManager : MonoBehaviour
         timerText.text = maxTime - (int)currentTime + "";
         if (currentTime >= maxTime)
         {
-            SetActiveBuild();
+            SpawningFactory();
         }
     }
 

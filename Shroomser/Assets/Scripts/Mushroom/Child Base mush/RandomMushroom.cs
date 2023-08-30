@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class RandomMushroom : BaseMushroom
 {
-    public MushroomData mushroomData;
+    public ItemData mushroomData;
     private void Awake()
     {
-        mushroom = mushroomData.allMushroom[Random.Range(0, mushroomData.allMushroom.Length)];
+        mushroom = mushroomData.allItem[Random.Range(0, mushroomData.allItem.Length)];
     }
 }

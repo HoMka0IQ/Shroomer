@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class BaseFactory : MonoBehaviour
+public abstract class BaseFactory : MonoBehaviour
 {
+    public ItemType.Type WhichItemCanTaked;
+
     public TMP_Text number;
-    Basket basket;
+    protected Basket basket;
 
     public int MaxCount;
-    public List<ItemMushroom> mushroomsInFactory;
+    public List<Item> ItemInFactory;
 
     public GameObject boxPrefab;
     public Transform SpawnBoxPosition;
     [HideInInspector]public bool isWorking = false;
     public float timerInSeconds;
-    float _currentTimer = 0;
+    [HideInInspector]public float _currentTimer = 0;
    
     private void Start()
     {
@@ -41,35 +43,47 @@ public class BaseFactory : MonoBehaviour
         GameObject box = Instantiate(boxPrefab, SpawnBoxPosition.position, Quaternion.identity);
         SaveLoadBoxes.instance.AddBoxes(box.GetComponent<BoxManager>());
         float cost = 0;
-        for (int i = 0; i < mushroomsInFactory.Count; i++)
+        for (int i = 0; i < ItemInFactory.Count; i++)
         {
-            cost += mushroomsInFactory[i].costByQuality * mushroomsInFactory[i].quality;
+            cost += ItemInFactory[i].costByQuality * ItemInFactory[i].quality;
         }
         box.GetComponent<BoxManager>().cost = (int)cost;
-        mushroomsInFactory.Clear();
+        ItemInFactory.Clear();
         TextReload();
     }
     public void TextReload()
     {
-        number.text ="(" + mushroomsInFactory.Count + "/" + MaxCount + ")<sprite=5>";
-    }
-    public void AddMushroomInFactory()
-    {
-        StartCoroutine(AddMushroom());
+        number.text ="(" + ItemInFactory.Count + "/" + MaxCount + ")<sprite=5>";
     }
 
-    IEnumerator AddMushroom()
+
+    public void AddItemInFactory()
     {
-        while (MaxCount > mushroomsInFactory.Count && basket.mushroomsInBasket.Count > 0)
+        StartCoroutine(AddItem());
+    }
+    IEnumerator AddItem()
+    {
+        for (int i = basket.mushroomsInBasket.Count - 1; i > -1; i--)
         {
-            yield return new WaitForSeconds(0.1f);
-            mushroomsInFactory.Add(basket.mushroomsInBasket[basket.mushroomsInBasket.Count - 1]);
-            basket.mushroomsInBasket.RemoveAt(basket.mushroomsInBasket.Count - 1);
-            TextReload();
-            if (MaxCount == mushroomsInFactory.Count)
+            Debug.Log(i);
+            Debug.Log(basket.mushroomsInBasket.Count);
+            if (basket.mushroomsInBasket[i].itemType == ItemType.Type.NotSelected)
             {
-                isWorking = true;
+                Debug.LogError("Item type not selected, please select item tyme in the Scriptable object 'ScriptableObjectItem'");
+                yield break;
             }
+            if (basket.mushroomsInBasket[i].itemType == WhichItemCanTaked && MaxCount > ItemInFactory.Count)
+            {
+                ItemInFactory.Add(basket.mushroomsInBasket[i]);
+                basket.mushroomsInBasket.RemoveAt(i);
+                TextReload();
+                if (MaxCount == ItemInFactory.Count)
+                {
+                    isWorking = true;
+                }
+
+            }
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }

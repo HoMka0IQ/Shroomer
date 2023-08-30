@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd24e87198cdf34fba46738a105dbef, type: 3}
+  m_Name: Chanterelle
+  m_EditorClassIdentifier: 
+  itemType: 0
+  itemName: Chanterelle
+  icon: {fileID: 1788825198, guid: 78fd1c4fc27112e4dbdf3084bbea3ef5, type: 3}
+  Model: {fileID: 4213209789301150905, guid: 4f05dfe7adfac714fa027dabc91ee1d8, type: 3}
+  Prefab: {fileID: 398363686607843962, guid: 2e1e0522ff95f8f4f8703de5d5d1598a, type: 3}
+  maxQuality: 100
+  minQuality: 1
+  costByQuality: 2
+  rarity: 2
+  size: 0

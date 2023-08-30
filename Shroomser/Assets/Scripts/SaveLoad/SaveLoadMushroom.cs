@@ -7,7 +7,7 @@ public class SaveLoadMushroom : MonoBehaviour
     public static SaveLoadMushroom instance;
     public List<GameObject> Mushroom;
     List<GameObject> _OldMushroom;
-    public MushroomData mushroomData;
+    public ItemData mushroomData;
     private void Awake()
     {
         instance = this;
@@ -39,7 +39,7 @@ public class SaveLoadMushroom : MonoBehaviour
             PlayerPrefs.SetFloat("PosZ" + i, Mushroom[i].transform.position.z);
 
 
-            PlayerPrefs.SetString("Name" + i, Mushroom[i].GetComponent<BaseMushroom>().GetOriginalMushroom().mushroomName);
+            PlayerPrefs.SetString("Name" + i, Mushroom[i].GetComponent<BaseMushroom>().GetOriginalMushroom().itemName);
         }
         PlayerPrefs.SetInt("MushroomNumber", Mushroom.Count);
     }
@@ -50,11 +50,11 @@ public class SaveLoadMushroom : MonoBehaviour
         {
             Vector3 pos = new Vector3(PlayerPrefs.GetFloat("PosX" + i), PlayerPrefs.GetFloat("PosY" + i), PlayerPrefs.GetFloat("PosZ" + i));
 
-            for (int t = 0; t < mushroomData.allMushroom.Length; t++)
+            for (int t = 0; t < mushroomData.allItem.Length; t++)
             {
-                if (PlayerPrefs.GetString("Name" + i) == mushroomData.allMushroom[t].mushroomName)
+                if (PlayerPrefs.GetString("Name" + i) == mushroomData.allItem[t].itemName)
                 {
-                    GameObject mush = Instantiate(mushroomData.allMushroom[t].Prefab, pos, Quaternion.identity);
+                    GameObject mush = Instantiate(mushroomData.allItem[t].Prefab, pos, Quaternion.identity);
                     Mushroom.Add(mush);
                 }
             }

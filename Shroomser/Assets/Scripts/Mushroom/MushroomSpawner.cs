@@ -7,7 +7,7 @@ public class MushroomSpawner : MonoBehaviour
 {
 
     GameObject Mushroom;
-    public MushroomData mushroomData;
+    public ItemData mushroomData;
 
     
     public void Spawn()
@@ -33,7 +33,7 @@ public class MushroomSpawner : MonoBehaviour
                 
                 float totalWeight = 0;
 
-                foreach (ScriptableObjectMushroom som in mushroomData.allMushroom)
+                foreach (ScriptableObjectItem som in mushroomData.allItem)
                 {
                     
                     totalWeight += MushroomRarity.instance.GetValueFromEnum(som.rarity);
@@ -47,7 +47,8 @@ public class MushroomSpawner : MonoBehaviour
                 Vector3 rayEndPosition = hit.point;
 
                 rayEndPosition.y += Mushroom.transform.localScale.y / 2;
-
+                Debug.Log(Mushroom == null);
+                Debug.Log(rayEndPosition == null);
                 GameObject newObject = Instantiate(Mushroom, rayEndPosition, Quaternion.identity);
                 SaveLoadMushroom.instance.AddMushroom(newObject);
             }

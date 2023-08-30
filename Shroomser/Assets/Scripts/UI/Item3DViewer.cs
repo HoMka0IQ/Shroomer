@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 public class Item3DViewer : MonoBehaviour, IDragHandler
 {
     GameObject item;
-    public ItemMushroom MushroomData;
+    public Item MushroomData;
     InsectSpawner insectSpawner;
     public GameObject PlaceForSpawnItem;
     public GameObject UI;
@@ -43,7 +43,7 @@ public class Item3DViewer : MonoBehaviour, IDragHandler
         WindowsManager.instance.ClostAllWindows();
         UI.SetActive(true);
     }
-    public void SetData(ItemMushroom MushroomData)
+    public void SetData(Item MushroomData)
     {
         this.MushroomData = MushroomData;
         SpawnObjectToView();

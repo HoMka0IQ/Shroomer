@@ -9,11 +9,11 @@ public class Slot : MonoBehaviour
     public TMP_Text mushroomName;
     public TMP_Text cost;
     public Image icon;
-    ItemMushroom item;
-    public void SetData(ItemMushroom mushroom)
+    Item item;
+    public void SetData(Item mushroom)
     {
         item = mushroom;
-        mushroomName.text = mushroom.mushroomName;
+        mushroomName.text = mushroom.itemName;
         cost.text = "cost: " + mushroom.costByQuality * mushroom.quality;
         icon.sprite = mushroom.icon;
     }

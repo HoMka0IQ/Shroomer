@@ -7,6 +7,8 @@ public class SaveLoadBuilding : MonoBehaviour
 
     public List<BuildManager> allbuildManager;
 
+    public ItemData itemData;
+
 
     private void Awake()
     {
@@ -16,10 +18,9 @@ public class SaveLoadBuilding : MonoBehaviour
 
     public void SaveSistem()
     {
-
-
         for (int i = 0; i < allbuildManager.Count; i++)
         {
+            //Builds
             int activeBuilding;
             if (allbuildManager[i].gameObject.activeSelf == true)
             {
@@ -31,13 +32,33 @@ public class SaveLoadBuilding : MonoBehaviour
             }
             PlayerPrefs.SetInt("ActiveSelfBuild" + i, activeBuilding);
 
-            if (allbuildManager[i].factory != null)
-            {
-
-            }
-
             PlayerPrefs.SetInt("buildID" + i, allbuildManager[i].buildID);
             PlayerPrefs.SetFloat("buildTimer" + i, allbuildManager[i].currentTime);
+
+            //Factories
+            if (allbuildManager[i].factory != null)
+            {
+                PlayerPrefs.SetInt("MaxCountInFactory" + i, allbuildManager[i].factory.MaxCount);
+                PlayerPrefs.SetFloat("TimerInFactory" + i, allbuildManager[i].factory._currentTimer);
+
+                if (allbuildManager[i].factory.isWorking)
+                {
+                    PlayerPrefs.SetInt("IsWorkingFactory" + i, 1);
+                }
+                else
+                {
+                    PlayerPrefs.SetInt("IsWorkingFactory" + i, 0);
+                }
+
+                for (int t = 0; t < allbuildManager[i].factory.ItemInFactory.Count; t++)
+                {
+                    PlayerPrefs.SetString("ItemNameInFactory" + i + "/" + t, allbuildManager[i].factory.ItemInFactory[t].itemName);
+                    PlayerPrefs.SetFloat("ItemQualityInFactory" + i + "/" + t, allbuildManager[i].factory.ItemInFactory[t].quality);
+                }
+                PlayerPrefs.SetInt("CountItemInFactory" + i, allbuildManager[i].factory.ItemInFactory.Count);
+            }
+
+
         }
         PlayerPrefs.SetInt("BuildingManagerCount", allbuildManager.Count);
     }
@@ -65,8 +86,39 @@ public class SaveLoadBuilding : MonoBehaviour
  
             if (allbuildManager[i].currentTime >= allbuildManager[i].maxTime)
             {
-                allbuildManager[i].SetActiveBuild();
+                allbuildManager[i].SpawningFactory();
 
+            }
+            //
+            if (allbuildManager[i].factory != null)
+            {
+                allbuildManager[i].factory.MaxCount = PlayerPrefs.GetInt("MaxCountInFactory" + i);
+                allbuildManager[i].factory._currentTimer = PlayerPrefs.GetFloat("TimerInFactory" + i);
+
+                
+                if (PlayerPrefs.GetInt("IsWorkingFactory" + i) == 1)
+                {
+                    allbuildManager[i].factory.isWorking = true;
+                }
+
+                if (allbuildManager[i].factory.isWorking == true)
+                {
+                    allbuildManager[i].factory._currentTimer += OfflineTime.instance.AllInSecond;
+                }
+                
+                for (int t = 0; t < PlayerPrefs.GetInt("CountItemInFactory" + i); t++)
+                {
+                    for (int y = 0; y < itemData.allItem.Length; y++)
+                    {
+                        if (PlayerPrefs.GetString("ItemNameInFactory" + i + "/" + t) == itemData.allItem[y].itemName)
+                        {
+             
+                        }
+                    }
+                   
+                    PlayerPrefs.SetString("ItemNameInFactory" + i + "/" + t, allbuildManager[i].factory.ItemInFactory[t].itemName);
+                    PlayerPrefs.SetFloat("ItemQualityInFactory" + i + "/" + t, allbuildManager[i].factory.ItemInFactory[t].quality);
+                }
             }
         }
     }

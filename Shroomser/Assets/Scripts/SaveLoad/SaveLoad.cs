@@ -6,7 +6,7 @@ using UnityEditor;
 public class SaveLoad : MonoBehaviour
 {
     public Basket basket;
-    public MushroomData mushroomData;
+    public ItemData mushroomData;
 
     public CarManager carManager;
 
@@ -26,16 +26,17 @@ public class SaveLoad : MonoBehaviour
             basket.maxCount = PlayerPrefs.GetInt("MaxCountInBasket");
             for (int i = 0; i < PlayerPrefs.GetInt("CountInBasket"); i++)
             {
-                ItemMushroom mushroom = ItemMushroom.CreateInstance<ItemMushroom>();
+                Item mushroom = Item.CreateInstance<Item>();
                 mushroom.quality = PlayerPrefs.GetFloat("MushroomQuality" + i);
-                for (int t = 0; t < mushroomData.allMushroom.Length; t++)
+                for (int t = 0; t < mushroomData.allItem.Length; t++)
                 {
-                    if (PlayerPrefs.GetString("mushroomName" + i) == mushroomData.allMushroom[t].mushroomName)
+                    if (PlayerPrefs.GetString("mushroomName" + i) == mushroomData.allItem[t].itemName)
                     {
-                        mushroom.costByQuality = mushroomData.allMushroom[t].costByQuality;
-                        mushroom.mushroomName = mushroomData.allMushroom[t].mushroomName;
-                        mushroom.icon = mushroomData.allMushroom[t].icon;
-                        mushroom.rarity = mushroomData.allMushroom[t].rarity;
+                        mushroom.itemType = mushroomData.allItem[t].itemType;
+                        mushroom.costByQuality = mushroomData.allItem[t].costByQuality;
+                        mushroom.itemName = mushroomData.allItem[t].itemName;
+                        mushroom.icon = mushroomData.allItem[t].icon;
+                        mushroom.rarity = mushroomData.allItem[t].rarity;
                         break;
                     }
                 }
@@ -83,7 +84,7 @@ public class SaveLoad : MonoBehaviour
         for (int i = 0; i < basket.mushroomsInBasket.Count; i++)
         {
             PlayerPrefs.SetFloat("MushroomQuality" + i, basket.mushroomsInBasket[i].quality);
-            PlayerPrefs.SetString("mushroomName" + i, basket.mushroomsInBasket[i].mushroomName);
+            PlayerPrefs.SetString("mushroomName" + i, basket.mushroomsInBasket[i].itemName);
         }
         //Car
         PlayerPrefs.SetFloat("CarTimer", carManager.currentCD_Time);
