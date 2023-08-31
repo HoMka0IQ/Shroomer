@@ -12,6 +12,8 @@ public class Itemtaker : MonoBehaviour
 
     GameObject item;
     GameObject box;
+
+    public AudioSource mushroomSound;
     bool CheckItemAroundPlayer(LayerMask layer)
     {
         Items = Physics.OverlapSphere(transform.position, 3, layer);
@@ -44,6 +46,8 @@ public class Itemtaker : MonoBehaviour
             item = Items[Random.Range(0, Items.Length)].gameObject;
             Item3DViewer.instance.OpenItemViewer();
             Item3DViewer.instance.SetData(item.GetComponent<BaseMushroom>().GetItemMushroom());
+            mushroomSound.Play();
+
             Destroy(item);
         }
         else if (CheckItemAroundPlayer(LayerMask.GetMask("BoxItem")))

@@ -7,6 +7,7 @@ public class PlayerData : MonoBehaviour
 {
     float money;
     public static PlayerData instance;
+    public AudioSource goldSound;
 
     public TMP_Text moneyText;
     private void Awake()
@@ -19,6 +20,7 @@ public class PlayerData : MonoBehaviour
     {
         this.money += money;
         resetMoneyText();
+        goldSound.Play();
     }
     public bool DecreaceMoney(int money)
     {
