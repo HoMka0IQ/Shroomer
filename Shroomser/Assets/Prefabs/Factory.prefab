@@ -461,7 +461,8 @@ MonoBehaviour:
     type: 3}
   SpawnBoxPosition: {fileID: 3454671347941960397}
   isWorking: 0
-  timerInSeconds: 5
+  timerInSeconds: 60
+  _currentTimer: 0
 --- !u!114 &3454671348397867243
 MonoBehaviour:
   m_ObjectHideFlags: 0

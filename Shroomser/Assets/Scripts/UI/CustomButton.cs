@@ -9,6 +9,7 @@ public class CustomButton : MonoBehaviour ,IPointerDownHandler ,IPointerUpHandle
     RectTransform rectTransform;
     public UnityEvent action;
 
+    public float scaleSize = 1.1f;
 
     [Header("Sprite changer")]
     public Sprite OffSprite;
@@ -23,12 +24,12 @@ public class CustomButton : MonoBehaviour ,IPointerDownHandler ,IPointerUpHandle
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        rectTransform.localScale = rectTransform.localScale / 1.15f;
+        rectTransform.localScale = rectTransform.localScale / scaleSize;
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        rectTransform.localScale = rectTransform.localScale * 1.15f;
+        rectTransform.localScale = rectTransform.localScale * scaleSize;
         action.Invoke();
 
         if (OffSprite == null || window == null)

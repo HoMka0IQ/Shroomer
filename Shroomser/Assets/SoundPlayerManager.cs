@@ -23,12 +23,12 @@ public class SoundPlayerManager : MonoBehaviour
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
                 stepAudioSource.clip = allSoundGroundStep[Random.Range(0, allSoundWoodenStep.Length)];
-                stepAudioSource.volume = 0.3f;
+                stepAudioSource.volume = 0.075f;
             }
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("WoodenFloor"))
             {
                 stepAudioSource.clip = allSoundWoodenStep[Random.Range(0, allSoundWoodenStep.Length)];
-                stepAudioSource.volume = 0.8f;
+                stepAudioSource.volume = 0.2f;
             }
         }
         stepAudioSource.Play();
