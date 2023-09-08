@@ -58,6 +58,7 @@ public class InventoryManager : MonoBehaviour
             {
                 basket.mushroomsInBasket.RemoveAt(i);
                 ReloadInventory();
+                slotText.text = slots.Count + "/" + basket.maxCount;
                 return;
             }
         }

@@ -26,7 +26,7 @@ public class RotatePlayer : MonoBehaviour
 
         if (movement != Vector3.zero)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), CurrentSmoothRotate);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), CurrentSmoothRotate * Time.deltaTime) ;
         }
     }
 
