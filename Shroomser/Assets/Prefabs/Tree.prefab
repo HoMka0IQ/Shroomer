@@ -151,7 +151,7 @@ LODGroup:
     renderers:
     - renderer: {fileID: 7910065475701048840}
     - renderer: {fileID: 3977475259467035574}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!82 &3565608376620197094
 AudioSource:
   m_ObjectHideFlags: 0
