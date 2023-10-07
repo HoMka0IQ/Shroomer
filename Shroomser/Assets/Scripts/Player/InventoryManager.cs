@@ -15,14 +15,38 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager instance;
 
     public TMP_Text slotText;
+
+    public AudioSource dropItem;
+    public AudioSource OpenInventory;
+    public AudioClip soundsOpenInventory;
+    public AudioClip soundsCloseInventory;
     private void Awake()
     {
         instance = GetComponent<InventoryManager>();
     }
     public void OpenCloseInventory()
     {
-        InventoryWindow.SetActive(!InventoryWindow.activeSelf);
+        if (InventoryWindow.activeSelf == false)
+        {
+            openInventory();
+        }
+        else
+        {
+            closeInventory();
+        }
+    }
+    void openInventory()
+    {
+        InventoryWindow.SetActive(true);
+        OpenInventory.clip = soundsOpenInventory;
+        OpenInventory.Play();
         ReloadInventory();
+    }
+    void closeInventory()
+    {
+        InventoryWindow.SetActive(false);
+        OpenInventory.clip = soundsCloseInventory;
+        OpenInventory.Play();
     }
     public void ReloadInventory()
     {
@@ -59,6 +83,7 @@ public class InventoryManager : MonoBehaviour
                 basket.mushroomsInBasket.RemoveAt(i);
                 ReloadInventory();
                 slotText.text = slots.Count + "/" + basket.maxCount;
+                dropItem.Play();
                 return;
             }
         }

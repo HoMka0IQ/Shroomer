@@ -7,7 +7,7 @@ namespace Cinemachine
     public class RiverSound : MonoBehaviour
     {
         public CinemachinePathBase m_Path;              // The path to follow
-        public GameObject Player;                       // The object to track
+        public Transform Player;                       // The object to track
 
         float m_Position;                               // The position along the path to set the cart to in path units
         private CinemachinePathBase.PositionUnits m_PositionUnits = CinemachinePathBase.PositionUnits.PathUnits;
@@ -15,7 +15,7 @@ namespace Cinemachine
         void Update()
         {
             // Find closest point to the player along the path
-            SetCartPosition(m_Path.FindClosestPoint(Player.transform.position, 0, -1, 10));
+            SetCartPosition(m_Path.FindClosestPoint(Player.transform.position, 0, -1, 1));
         }
 
         // Set cart's position to closest point

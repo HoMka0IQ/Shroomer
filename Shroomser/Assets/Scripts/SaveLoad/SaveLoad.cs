@@ -51,7 +51,7 @@ public class SaveLoad : MonoBehaviour
         }
         else
         {
-            carManager.ChangeCarOrder();
+            carManager.maxBox = 1;
         }
         if (PlayerPrefs.HasKey("CarTimer") && PlayerPrefs.GetInt("CarBoxCount") > 0)
         {
@@ -96,6 +96,7 @@ public class SaveLoad : MonoBehaviour
         }
         //Car
         PlayerPrefs.SetFloat("CarTimer", carManager.currentCD_Time);
+
         PlayerPrefs.SetInt("CarBoxCount", carManager.currentBox.Count);
         PlayerPrefs.SetInt("OrderCount", carManager.maxBox);
         for (int i = 0; i < carManager.currentBox.Count; i++)

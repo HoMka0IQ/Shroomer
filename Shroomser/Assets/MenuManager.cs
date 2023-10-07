@@ -9,6 +9,7 @@ public class MenuManager : MonoBehaviour
     public GameObject graphicsPage;
 
     public GameObject background;
+    public Dictionary<string, int> pages;
     void OpenPage(GameObject page)
     {
         MainPage.SetActive(false);
@@ -29,6 +30,17 @@ public class MenuManager : MonoBehaviour
         OpenPage(MainPage);
     }
 
+    public void BackgroundBTN()
+    {
+        if (MainPage.activeSelf == false)
+        {
+            OpenPage(MainPage);
+        }
+        else
+        {
+            ClosePages();
+        }
+    }
 
     public void ResumeButton()
     {

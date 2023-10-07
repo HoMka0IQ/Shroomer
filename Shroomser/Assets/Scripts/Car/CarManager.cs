@@ -50,6 +50,7 @@ public class CarManager : MonoBehaviour
             ReloadText();
             MainCarGO.SetActive(true);
             carAnimController.SetAnim("Coming_Car");
+            Debug.Log("sss");
             ChangeCarOrder();
             return;
         }

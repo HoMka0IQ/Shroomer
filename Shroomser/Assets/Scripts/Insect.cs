@@ -8,9 +8,11 @@ public class Insect : MonoBehaviour
 
     public int IncreaseQuality;
 
+
     private void OnMouseUp()
     {
         Item3DViewer.instance.MushroomData.IncreaseQuality(IncreaseQuality);
+        InsectSound.instance.PlaySound();
         Destroy(gameObject);
     }
 }

@@ -47,8 +47,6 @@ public class MushroomSpawner : MonoBehaviour
                 Vector3 rayEndPosition = hit.point;
 
                 rayEndPosition.y += Mushroom.transform.localScale.y / 2;
-                Debug.Log(Mushroom == null);
-                Debug.Log(rayEndPosition == null);
                 GameObject newObject = Instantiate(Mushroom, rayEndPosition, Quaternion.identity);
                 SaveLoadMushroom.instance.AddMushroom(newObject);
             }

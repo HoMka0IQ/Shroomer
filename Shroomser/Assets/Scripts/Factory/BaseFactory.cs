@@ -30,6 +30,7 @@ public abstract class BaseFactory : MonoBehaviour
         if (isWorking)
         {
             _currentTimer += Time.deltaTime;
+            TextReload();
             if (_currentTimer >= timerInSeconds)
             {
                 InstantiateMushroomBox();
@@ -45,7 +46,7 @@ public abstract class BaseFactory : MonoBehaviour
         float cost = 0;
         for (int i = 0; i < ItemInFactory.Count; i++)
         {
-            cost += ItemInFactory[i].costByQuality * ItemInFactory[i].currentQuality;
+            cost += ItemInFactory[i].GetItemCost();
         }
         box.GetComponent<BoxManager>().cost = (int)cost;
         ItemInFactory.Clear();
@@ -53,9 +54,23 @@ public abstract class BaseFactory : MonoBehaviour
     }
     public void TextReload()
     {
-        number.text ="(" + ItemInFactory.Count + "/" + MaxCount + ")<sprite=5>";
+        if (ItemInFactory.Count >= MaxCount)
+        {
+            number.text = FormatTime(timerInSeconds - _currentTimer);
+        }
+        else
+        {
+            number.text = "(" + ItemInFactory.Count + "/" + MaxCount + ")<sprite=5>";
+        }
+        
     }
+    string FormatTime(float timeInSeconds)
+    {
+        int minutes = Mathf.FloorToInt(timeInSeconds / 60);
+        int seconds = Mathf.FloorToInt(timeInSeconds % 60);
 
+        return string.Format("{0:D2}:{1:D2}", minutes, seconds);
+    }
 
     public void AddItemInFactory()
     {

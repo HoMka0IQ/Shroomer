@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -120,7 +120,7 @@ TextureImporter:
       name: ItemViewer_0
       rect:
         serializedVersion: 2
-        x: 1623
+        x: 3796
         y: 1003
         width: 129
         height: 3158
@@ -141,9 +141,9 @@ TextureImporter:
       name: ItemViewer_1
       rect:
         serializedVersion: 2
-        x: 1856
-        y: 1019
-        width: 81
+        x: 4029
+        y: 1020
+        width: 80
         height: 3121
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -162,8 +162,8 @@ TextureImporter:
       name: ItemViewer_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 358
+        x: 2173
+        y: 356
         width: 2038
         height: 399
       alignment: 0
@@ -183,7 +183,7 @@ TextureImporter:
       name: ItemViewer_3
       rect:
         serializedVersion: 2
-        x: 17
+        x: 2190
         y: 0
         width: 331
         height: 330
@@ -196,6 +196,69 @@ TextureImporter:
       bones: []
       spriteID: e5bc80699ff7ef3469694d1b44088565
       internalID: 758068005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ItemViewer_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 347
+        width: 2132
+        height: 423
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 150, y: 123, z: 169, w: 129}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65d37edd3d6fef7408162c25f2c72e86
+      internalID: -583607622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ItemViewer_5
+      rect:
+        serializedVersion: 2
+        x: 3012
+        y: 1004
+        width: 665
+        height: 438
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 142, y: 140, z: 173, w: 137}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d338cc8de897c1d47897618bb24b1023
+      internalID: 895374871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ItemViewer_6
+      rect:
+        serializedVersion: 2
+        x: 3036
+        y: 850
+        width: 621
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 531c471342813854caeec4f70826fe69
+      internalID: -814019303
       vertices: []
       indices: 
       edges: []
@@ -215,6 +278,9 @@ TextureImporter:
       ItemViewer_1: -424219971
       ItemViewer_2: 85548780
       ItemViewer_3: 758068005
+      ItemViewer_4: 603635831
+      ItemViewer_5: -583607622
+      ItemViewer_6: 895374871
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

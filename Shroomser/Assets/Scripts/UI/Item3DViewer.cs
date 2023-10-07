@@ -14,13 +14,18 @@ public class Item3DViewer : MonoBehaviour, IDragHandler
     public GameObject UI;
 
     public Image qualityFillAmount;
-    public TMP_Text qualiteText; 
+    public Transform textPosition;
+    public TMP_Text qualityText;
+    public TMP_Text costText;
 
     float yRot;
     float xRot;
     public float smooth;
 
     public static Item3DViewer instance;
+
+    public AudioSource takeSound;
+    public AudioSource DropSound;
 
     void Start()
     {
@@ -77,14 +82,12 @@ public class Item3DViewer : MonoBehaviour, IDragHandler
         SetMushroomPos();
     }
 
-    public void CloseItemViewer()
+    void CloseItemViewer()
     {
         if (item != null)
         {
             Destroy(item);
         }
-
-        
         UI.SetActive(false);
     }
     public void ShowQuality()
@@ -92,17 +95,22 @@ public class Item3DViewer : MonoBehaviour, IDragHandler
         if (MushroomData != null)
         {
             qualityFillAmount.fillAmount = MushroomData.currentQuality / 100;
-            qualiteText.text = (int)MushroomData.currentQuality + "";
+            float fillAmount = qualityFillAmount.fillAmount;
+            textPosition.localPosition = new Vector3(0, qualityFillAmount.fillAmount * qualityFillAmount.rectTransform.rect.height, 0);
+            qualityText.text = (int)MushroomData.currentQuality + "%";
+            costText.text = MushroomData.GetItemCost() + "<sprite=3>";
         }
     }
     public void DestroyItem()
     {
         CloseItemViewer();
+        DropSound.Play();
     }
     public void SaveItem()
     {
         Basket.instance.AddMushroom(MushroomData);
-        DestroyItem();
+        CloseItemViewer();
+        takeSound.Play();
     }
     public void OnDrag(PointerEventData eventData)
     {

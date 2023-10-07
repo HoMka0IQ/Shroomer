@@ -21,4 +21,10 @@ public class Item : ScriptableObject
         currentQuality += number;
         currentQuality = Mathf.Clamp(currentQuality, 1, 100);
     }
+
+    public int GetItemCost()
+    {
+        float cost = costByQuality * currentQuality;
+        return Mathf.RoundToInt(cost);
+    }
 }

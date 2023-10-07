@@ -25,6 +25,8 @@ public class BuildManager : MonoBehaviour
     public GameObject NextZone;
 
     [HideInInspector]public BaseFactory factory;
+
+    private float lastUpdateTime = 0f;
     private void Start()
     {
         if (currentTime == 0 && buildID < 0)
@@ -32,6 +34,8 @@ public class BuildManager : MonoBehaviour
             zone.SetActive(true);
             buildingGO.SetActive(false);
         }
+
+        timerText.text = FormatTime(maxTime - (int)currentTime);
     }
     public void SpawningFactory()
     {
@@ -59,11 +63,24 @@ public class BuildManager : MonoBehaviour
         buildingGO.SetActive(true);
         zone.SetActive(false);
         currentTime += Time.deltaTime;
-        timerText.text = maxTime - (int)currentTime + "";
+        if (currentTime - lastUpdateTime >= 1f)
+        {
+            lastUpdateTime = currentTime;
+            string currentFormattedTime = FormatTime(maxTime - (int)currentTime);
+
+            timerText.text = currentFormattedTime;
+        }
         if (currentTime >= maxTime)
         {
             SpawningFactory();
         }
+    }
+    string FormatTime(float timeInSeconds)
+    {
+        int minutes = Mathf.FloorToInt(timeInSeconds / 60);
+        int seconds = Mathf.FloorToInt(timeInSeconds % 60);
+
+        return string.Format("{0:D2}:{1:D2}", minutes, seconds);
     }
 
     public void ShowHideCanvas()
