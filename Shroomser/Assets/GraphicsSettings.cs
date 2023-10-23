@@ -11,12 +11,23 @@ public class GraphicsSettings : MonoBehaviour
     public Slider fpsSlider;
 
     public TMP_Text maxFPSText;
+
+    public GameObject fpsCounter;
+    public Toggle toggleFPSCounter;
     public void Start()
     {
         setGraphics(PlayerPrefs.GetInt("GraphicsValue"));
         dropdownGraphicsSettings.value = PlayerPrefs.GetInt("GraphicsValue");
-
-        fpsSlider.value = PlayerPrefs.GetFloat("FPS_Slider");
+        if (PlayerPrefs.HasKey("FPS_Slider"))
+        {
+            fpsSlider.value = PlayerPrefs.GetFloat("FPS_Slider");
+        }
+        else
+        {
+            fpsSlider.value = 6;
+            fpsSliderValue();
+        }
+        
         fpsSliderValue();
     }
     public void dropDownMenu()
@@ -42,5 +53,10 @@ public class GraphicsSettings : MonoBehaviour
             return;
         }
         maxFPSText.text = (int)value + "";
+    }
+
+    public void ShowFPScounter()
+    {
+        fpsCounter.SetActive(toggleFPSCounter.isOn);
     }
 }

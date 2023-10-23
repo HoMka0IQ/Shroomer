@@ -263,6 +263,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: ItemViewer_7
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 1022
+        width: 2040
+        height: 398
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 134, y: 122, z: 176, w: 127}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bf402694c90ec440b30507845ba8d42
+      internalID: 479847672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -281,6 +302,7 @@ TextureImporter:
       ItemViewer_4: 603635831
       ItemViewer_5: -583607622
       ItemViewer_6: 895374871
+      ItemViewer_7: 479847672
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

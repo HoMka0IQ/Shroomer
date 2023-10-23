@@ -6,6 +6,7 @@ public class MushroomRarity : MonoBehaviour
 {
 
     public static MushroomRarity instance;
+    public GameObject[] RarytyWindows;
 
     private void Awake()
     {

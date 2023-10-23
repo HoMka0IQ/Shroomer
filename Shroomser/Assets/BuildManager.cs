@@ -36,6 +36,8 @@ public class BuildManager : MonoBehaviour
         }
 
         timerText.text = FormatTime(maxTime - (int)currentTime);
+
+        
     }
     public void SpawningFactory()
     {
@@ -92,6 +94,7 @@ public class BuildManager : MonoBehaviour
     {
         windowMenu.SetActive(!windowMenu.activeSelf);
         _buildID = -1;
+        
         ResetCostText();
     }
 
@@ -110,15 +113,16 @@ public class BuildManager : MonoBehaviour
         buildID = _buildID;
         ShowHideWindow();
         ShowHideCanvas();
+       
     }
 
     void ResetCostText()
     {
         if (_buildID < 0)
         {
-            costText.text = "";
+            costText.text = "---";
             return;
         }
-        costText.text = cost[_buildID] + "";
+        costText.text = cost[_buildID] + "<sprite=3>";
     }
 }

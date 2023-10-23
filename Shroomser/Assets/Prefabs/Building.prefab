@@ -105,6 +105,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  scaleSize: 1.1
   OffSprite: {fileID: 0}
   OnSprite: {fileID: 0}
   window: {fileID: 0}
@@ -319,6 +320,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  scaleSize: 1.1
   OffSprite: {fileID: 0}
   OnSprite: {fileID: 0}
   window: {fileID: 0}
@@ -502,6 +504,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  scaleSize: 1.1
   OffSprite: {fileID: 0}
   OnSprite: {fileID: 0}
   window: {fileID: 0}
@@ -1300,7 +1303,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6931424637491048821}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1309,8 +1312,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -357.5595, y: 231}
-  m_SizeDelta: {x: 224.72742, y: 220.4711}
+  m_AnchoredPosition: {x: -362.67975, y: 234.0394}
+  m_SizeDelta: {x: 225, y: 220}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6931424637491048817
 CanvasRenderer:
@@ -1340,8 +1343,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 1273129190, guid: 39b96390dd686ae4fa9894a07625b4a6, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1503,7 +1506,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 500
+  m_text: ---
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0c0364d1d2186e342bc6049f33e80af6, type: 2}
   m_sharedMaterial: {fileID: -1530118165858178243, guid: 0c0364d1d2186e342bc6049f33e80af6,
@@ -1513,8 +1516,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278959359
-  m_fontColor: {r: 1, g: 0.7376764, b: 0.042452812, a: 1}
+    rgba: 4278250751
+  m_fontColor: {r: 1, g: 0.9254902, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1523,7 +1526,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: a2a07b6cffa3af9449fc0ce7bfb3a5dc, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901

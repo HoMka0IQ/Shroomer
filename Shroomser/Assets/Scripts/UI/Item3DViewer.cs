@@ -27,6 +27,8 @@ public class Item3DViewer : MonoBehaviour, IDragHandler
     public AudioSource takeSound;
     public AudioSource DropSound;
 
+    public GameObject[] rarityWindows;
+
     void Start()
     {
         instance = GetComponent<Item3DViewer>();
@@ -79,9 +81,18 @@ public class Item3DViewer : MonoBehaviour, IDragHandler
         insectSpawner.SpawnInsectOnMushroom(item, Random.Range(2,5));
         xRot = 0;
         yRot = 0;
+        OpenRarityWindow();
         SetMushroomPos();
     }
 
+    void OpenRarityWindow()
+    {
+        for (int i = 0; i < rarityWindows.Length; i++)
+        {
+            rarityWindows[i].SetActive(false);
+        }
+        rarityWindows[(int)MushroomData.rarity].SetActive(true);
+    }
     void CloseItemViewer()
     {
         if (item != null)
